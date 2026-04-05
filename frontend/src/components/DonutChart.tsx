@@ -42,10 +42,11 @@ export function DonutChart({ data, title, insight }: Props) {
             }}
             labelStyle={{ color: '#a1a1aa' }}
             itemStyle={{ color: '#e4e4e7' }}
-            formatter={(value: number, name: string, props) => {
+            formatter={(value, name: string, props) => {
+              const v = Number(value)
               const conteo = props.payload.conteo
               return [
-                conteo != null ? `${value}% (${conteo} casos)` : `${value}%`,
+                conteo != null ? `${v}% (${conteo} casos)` : `${v}%`,
                 name,
               ]
             }}
