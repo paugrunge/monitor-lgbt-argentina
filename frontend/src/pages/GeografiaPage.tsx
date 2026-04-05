@@ -82,7 +82,7 @@ export function GeografiaPage() {
               contentStyle={{ backgroundColor: '#18181b', border: '1px solid #3f3f46', borderRadius: 8, padding: '10px 14px' }}
               labelStyle={{ color: '#71717a', fontSize: 11, marginBottom: 6 }}
               itemStyle={{ fontSize: 13, padding: '2px 0' }}
-              formatter={(value, name: string) => [`${Number(value)}%`, name]}
+              formatter={(value, name) => [`${Number(value)}%`, String(name)]}
               itemSorter={(item) => -(item.value as number)}
               cursor={{ stroke: '#52525b', strokeWidth: 1, strokeDasharray: '4 2' }}
             />
