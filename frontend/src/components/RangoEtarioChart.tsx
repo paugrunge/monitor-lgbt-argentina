@@ -8,6 +8,7 @@ import {
   ResponsiveContainer,
 } from 'recharts'
 import { getLabel } from '../lib/labels'
+import { TOOLTIP_STYLE } from '../lib/chartStyles'
 
 const ORDEN = ['10-19', '20-29', '30-39', '40-49', '50-59', '60-69', '70-79']
 
@@ -51,13 +52,7 @@ export function RangoEtarioChart({ data, subtitle }: Props) {
             width={40}
           />
           <Tooltip
-            contentStyle={{
-              backgroundColor: '#18181b',
-              border: '1px solid #3f3f46',
-              borderRadius: 8,
-            }}
-            labelStyle={{ color: '#a1a1aa' }}
-            itemStyle={{ color: '#e4e4e7' }}
+            {...TOOLTIP_STYLE}
             formatter={(value, _name, props) => {
               const v = Number(value)
               const conteo = props.payload.conteo

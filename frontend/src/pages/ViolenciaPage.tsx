@@ -59,13 +59,15 @@ export function ViolenciaPage() {
     [data, anio],
   )
 
+  const modalidadData = useMemo(() => filtrar('modalidad'), [data, anio])
+
   const insightViolacion = useMemo(() => {
     const vida = filtrar('tipo_violacion').find((d) => d.categoria === 'derecho_a_la_vida')
     if (!vida?.porcentaje) return undefined
     return `${vida.porcentaje.toFixed(1)}% de los crímenes lesionan el derecho a la vida${anio ? ` en ${anio}` : ''}.`
   }, [data, anio])
 
-  if (loading) return <div className="p-10 text-zinc-500">Cargando...</div>
+  if (loading) return <div className="flex items-center justify-center min-h-[60vh] text-zinc-500 text-sm">Cargando datos...</div>
 
   return (
     <PageShell
@@ -75,7 +77,7 @@ export function ViolenciaPage() {
       anio={anio}
       onAnioChange={setAnio}
     >
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <DonutChart
           data={violacionData}
           title="Derechos lesionados"
@@ -88,7 +90,7 @@ export function ViolenciaPage() {
       </div>
       <DimensionBarChart
         dimension="modalidad"
-        data={filtrar('modalidad')}
+        data={modalidadData}
         title="Modalidad del crimen"
         subtitle={anio ? `Año ${anio}` : 'Datos agregados de todos los años'}
         color="#8b5cf6"

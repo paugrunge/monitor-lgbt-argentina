@@ -4,6 +4,7 @@ import { PageShell } from '../components/PageShell'
 import { ProvinciasChart } from '../components/ProvinciasChart'
 import { ProvinciaHeatmap } from '../components/ProvinciaHeatmap'
 import { agregarTodosLosAnios } from '../lib/utils'
+import { TOOLTIP_STYLE } from '../lib/chartStyles'
 import {
   LineChart,
   Line,
@@ -57,7 +58,7 @@ export function GeografiaPage() {
     })
   }, [data, años])
 
-  if (loading) return <div className="p-10 text-zinc-500">Cargando...</div>
+  if (loading) return <div className="flex items-center justify-center min-h-[60vh] text-zinc-500 text-sm">Cargando datos...</div>
 
   return (
     <PageShell
@@ -79,9 +80,7 @@ export function GeografiaPage() {
             <XAxis dataKey="anio" tick={{ fill: '#a1a1aa', fontSize: 12 }} axisLine={{ stroke: '#3f3f46' }} tickLine={false} />
             <YAxis tick={{ fill: '#a1a1aa', fontSize: 12 }} axisLine={false} tickLine={false} unit="%" width={36} />
             <Tooltip
-              contentStyle={{ backgroundColor: '#18181b', border: '1px solid #3f3f46', borderRadius: 8, padding: '10px 14px' }}
-              labelStyle={{ color: '#71717a', fontSize: 11, marginBottom: 6 }}
-              itemStyle={{ fontSize: 13, padding: '2px 0' }}
+              {...TOOLTIP_STYLE}
               formatter={(value, name) => [`${Number(value)}%`, String(name)]}
               itemSorter={(item) => -(item.value as number)}
               cursor={{ stroke: '#52525b', strokeWidth: 1, strokeDasharray: '4 2' }}

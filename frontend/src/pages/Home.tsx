@@ -61,7 +61,7 @@ export function Home() {
   }
 
   return (
-    <main className="px-6 py-10 max-w-6xl mx-auto space-y-10">
+    <main className="px-4 sm:px-6 py-8 sm:py-10 max-w-6xl mx-auto space-y-10">
       {/* Hero */}
       <section className="space-y-4">
         <div className="inline-block bg-violet-500/10 border border-violet-500/30 text-violet-400 text-xs font-medium px-3 py-1 rounded-full">
@@ -79,7 +79,7 @@ export function Home() {
 
       {/* Métricas clave */}
       <section className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-5 flex items-start gap-4">
+        <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6 flex items-start gap-4">
           <div className="bg-violet-500/10 p-2 rounded-lg">
             <TrendingUp size={20} className="text-violet-400" />
           </div>
@@ -88,7 +88,7 @@ export function Home() {
             <p className="text-3xl font-bold text-white">{totalUltimoAnio}</p>
           </div>
         </div>
-        <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-5 flex items-start gap-4">
+        <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6 flex items-start gap-4">
           <div className="bg-violet-500/10 p-2 rounded-lg">
             <Users size={20} className="text-violet-400" />
           </div>
@@ -102,7 +102,7 @@ export function Home() {
             </p>
           </div>
         </div>
-        <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-5 flex items-start gap-4">
+        <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6 flex items-start gap-4">
           <div className="bg-violet-500/10 p-2 rounded-lg">
             <MapPin size={20} className="text-violet-400" />
           </div>
@@ -123,7 +123,7 @@ export function Home() {
           <span className="text-zinc-500 text-sm">Filtrar por año:</span>
           <YearFilter años={años} value={anioSeleccionado} onChange={setAnioSeleccionado} />
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <IdentidadChart data={identidades} anioSeleccionado={anioSeleccionado} />
           <ProvinciasChart data={provincias} anio={anioSeleccionado} />
         </div>

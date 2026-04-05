@@ -9,6 +9,7 @@ import {
   ResponsiveContainer,
 } from 'recharts'
 import { getLabel } from '../lib/labels'
+import { TOOLTIP_STYLE } from '../lib/chartStyles'
 
 type Entry = {
   categoria: string
@@ -76,19 +77,13 @@ export function DimensionBarChart({
           <YAxis
             type="category"
             dataKey="name"
-            tick={{ fill: '#a1a1aa', fontSize: 12 }}
+            tick={{ fill: '#a1a1aa', fontSize: 11 }}
             axisLine={false}
             tickLine={false}
-            width={210}
+            width={160}
           />
           <Tooltip
-            contentStyle={{
-              backgroundColor: '#18181b',
-              border: '1px solid #3f3f46',
-              borderRadius: 8,
-            }}
-            labelStyle={{ color: '#a1a1aa' }}
-            itemStyle={{ color: '#e4e4e7' }}
+            {...TOOLTIP_STYLE}
             formatter={(value, _name, props) => {
               const v = Number(value)
               const conteo = props.payload.conteo

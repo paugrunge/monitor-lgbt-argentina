@@ -32,8 +32,10 @@ export function ProvinciaHeatmap({ data, años }: Props) {
 
   const maxPct = Math.max(...filas.map((d) => d.porcentaje ?? 0))
 
+  // O(1) lookup en lugar de Array.find() en cada celda del grid
+  const celdaMap = new Map(filas.map((d) => [`${d.categoria}|${d.anio}`, d]))
   const getCelda = (provincia: string, anio: number) =>
-    filas.find((d) => d.categoria === provincia && d.anio === anio)
+    celdaMap.get(`${provincia}|${anio}`)
 
   return (
     <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6">

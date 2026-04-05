@@ -9,6 +9,7 @@ import {
   ResponsiveContainer,
 } from 'recharts'
 import type { Estadistica } from '../lib/supabase'
+import { TOOLTIP_STYLE } from '../lib/chartStyles'
 
 const IDENTITY_COLORS: Record<string, string> = {
   mujer_trans:   '#a78bfa',  // violet-400  — destacada, más brillante
@@ -27,6 +28,12 @@ const IDENTITY_LABELS: Record<string, string> = {
 }
 
 const IDENTIDADES = Object.keys(IDENTITY_COLORS)
+
+const renderLegendText = (value: string) => (
+  <span style={{ color: '#a1a1aa', fontSize: 12 }}>
+    {IDENTITY_LABELS[value] ?? value}
+  </span>
+)
 
 type Props = {
   data: Estadistica[]
@@ -68,26 +75,14 @@ export function IdentidadEvolucionChart({ data, años }: Props) {
             width={40}
           />
           <Tooltip
-            contentStyle={{
-              backgroundColor: '#18181b',
-              border: '1px solid #3f3f46',
-              borderRadius: 8,
-            }}
-            labelStyle={{ color: '#a1a1aa' }}
-            itemStyle={{ color: '#e4e4e7' }}
+            {...TOOLTIP_STYLE}
             formatter={(value, name) => [
               `${Number(value)}%`,
               IDENTITY_LABELS[String(name)] ?? String(name),
             ]}
             itemSorter={(item) => -(item.value as number)}
           />
-          <Legend
-            formatter={(value) => (
-              <span style={{ color: '#a1a1aa', fontSize: 12 }}>
-                {IDENTITY_LABELS[value] ?? value}
-              </span>
-            )}
-          />
+          <Legend formatter={renderLegendText} />
           {IDENTIDADES.map((id) => (
             <Line
               key={id}
