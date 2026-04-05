@@ -1,0 +1,269 @@
+﻿anio,periodo,dimension,categoria_raw,categoria,conteo,porcentaje,total_anual
+2016,anual,identidad_victima,ASESINATOS,asesinatos,,42.0,31
+2016,anual,identidad_victima,FUERZAS DE SEGURIDAD,fuerzas_de_seguridad,,33.4,31
+2016,anual,identidad_victima,GAYS,gay_cis,,9.6,31
+2016,anual,identidad_victima,LESBIANAS,lesbiana,,13.0,31
+2016,anual,identidad_victima,MUJERES TRANS,mujer_trans,,77.4,31
+2016,anual,identidad_victima,PRIVADOS,privados,,66.6,31
+2016,anual,identidad_victima,VIOLENCIA FÍSICA,violencia_fisica,,58.0,31
+2016,anual,provincia,BUENOS AIRES,Buenos Aires,,25.8,31
+2016,anual,provincia,CABA,CABA,,19.35,31
+2016,anual,provincia,CÓRDOBA,Córdoba,,9.67,31
+2016,anual,provincia,SALTA,Salta,,16.13,31
+2016,anual,provincia,SANTA FE,Santa Fe,,9.67,31
+2016,anual,provincia,"OTRAS
+Para finalizar","otras
+para_finalizar",,19.35,31
+2017,anual,identidad_victima,Abuso sexual,abuso_sexual,,10.0,103
+2017,anual,identidad_victima,Asfixia,asfixia,,70.0,103
+2017,anual,identidad_victima,Corte/s,corte_s,,4.0,103
+2017,anual,identidad_victima,los crímenes de,los_crimenes_de,,500.0,103
+2017,anual,identidad_victima,Mujeres Trans Gays Lesbianas Varones trans,mujer_trans,,58.0,103
+2017,anual,identidad_victima,Puñalada/s,punalada_s,,1.0,103
+2017,anual,identidad_victima,Violencia física Asesinatos,violencia_fisica_asesinatos,,87.0,103
+2017,anual,lugar_fisico,Comisaria / Penal,comisaria_penal,,2.0,103
+2017,anual,lugar_fisico,de casos ocurren en viviendas,de_casos_ocurren_en_viviendas,,17.61,103
+2017,anual,lugar_fisico,Establecimiento privado de acceso,establecimiento_privado,,4.0,103
+2017,anual,lugar_fisico,Establecimiento público,establecimiento_publico,,7.0,103
+2017,anual,lugar_fisico,Vivienda de la víctima,vivienda_victima,,2.0,103
+2017,anual,provincia,Buenos Aires,Buenos Aires,,33.32,103
+2017,anual,rango_etario,Edad desconocida,edad_desconocida,,12.0,103
+2018,anual,autoria,Privados (86) Estado en general (42) Fuerzas de seguridad del,estado,,58.5,147
+2018,anual,identidad_victima,Gays (41),gay_cis,,28.0,147
+2018,anual,identidad_victima,Lesbianas (11),lesbiana,,64.0,147
+2018,anual,identidad_victima,"IDENTIDADES DE LAS VÍCTIMAS
+DE CRÍMENES DE ODIO
+Mujeres trans",mujer_trans,94.0,7.0,147
+2018,anual,lugar_fisico,ocurrió en comisarías o penales y otro 2% en vehículos,comisaria_penal,,2.0,147
+2018,anual,lugar_fisico,Descampado / Terreno baldío /,descampado,,41.0,147
+2018,anual,lugar_fisico,Establecimiento público,establecimiento_publico,,15.0,147
+2018,anual,lugar_fisico,a otra vivienda,otra_vivienda,,1.0,147
+2018,anual,lugar_fisico,de los casos ocurrieron en rutas y caminos,ruta,,7.0,147
+2018,anual,lugar_fisico,Vehículo,vehiculo,,8.0,147
+2018,anual,lugar_fisico,Vivienda compartida víctima /,vivienda_compartida,,4.0,147
+2018,anual,lugar_fisico,corresponde a la vivienda particular de la víctima,vivienda_victima,,15.0,147
+2018,anual,provincia,respectivamente se encuentran Chaco,Chaco,,2.04,147
+2018,anual,provincia,Jujuy,Jujuy,,2.72,147
+2018,anual,provincia,La Rioja,La Rioja,,19.05,147
+2018,anual,provincia,Mendoza,Mendoza,,2.72,147
+2018,anual,provincia,Neuquén,Neuquén,,2.72,147
+2018,anual,provincia,Río Negro,Río Negro,,7.48,147
+2018,anual,provincia,Salta,Salta,,8.16,147
+2018,anual,provincia,Santiago del Estero,Santiago del Estero,,8.16,147
+2018,anual,provincia,de casos,de_casos,,1.36,147
+2018,anual,provincia,"la Ciudad Autónoma de Buenos
+Aires","la_ciudad_autonoma_de_buenos
+aires",,19.05,147
+2018,anual,provincia,Otras,otras,,1.36,147
+2018,anual,tipo_violacion,Derecho a la vida,derecho_a_la_vida,,54.0,147
+2019,anual,autoria,es perpetrado específicamente por,es_perpetrado_especificamente_por,,12.0,177
+2019,anual,autoria,Estado en general,estado,61.0,35.0,177
+2019,anual,autoria,son cometidos por personas privadas,persona_privada,,47.0,177
+2019,anual,autoria,Privados (83),privados_(83),,6.0,177
+2019,anual,identidad_victima,de los casos le siguen las lesbianas y por,lesbiana,,8.0,177
+2019,anual,identidad_victima,de los casos corresponden a mujeres trans (travestis,mujer_trans,,64.0,177
+2019,anual,lugar_fisico,Comisaria / Penal,comisaria_penal,,3.0,177
+2019,anual,lugar_fisico,Descampado / Terreno baldío /,descampado,,2.0,177
+2019,anual,lugar_fisico,Establecimiento público,establecimiento_publico,,14.0,177
+2019,anual,lugar_fisico,Otra vivienda,otra_vivienda,,20.0,177
+2019,anual,lugar_fisico,Ruta / Camino,ruta,,3.0,177
+2019,anual,lugar_fisico,restante los crímenes de odio ocurrieron en vehículos,vehiculo,,1.0,177
+2019,anual,lugar_fisico,Vivienda del/a agresor/a,vivienda_del_a_agresor_a,,47.0,177
+2019,anual,lugar_fisico,corresponde a la vivienda particular de la víctima -y está di,vivienda_victima,,20.0,177
+2019,anual,modalidad,cada uno los abusos sexuales y los balazos,balazo,,3.0,177
+2019,anual,modalidad,respectivamente por categoría: los cortes,corte,,1.0,177
+2019,anual,modalidad,Empujones/ forcejeos,empujones__forcejeos,,4.0,177
+2019,anual,modalidad,ahorcamiento/ Asfixia,estrangulamiento,,1.0,177
+2019,anual,modalidad,Mutilación/es,mutilacion_es,,1.0,177
+2019,anual,modalidad,Otro,otro,,2.0,177
+2019,anual,modalidad,Privación ilegítima de la libertad,privacion_ilegitima_de_la_libertad,,1.0,177
+2019,anual,modalidad,las puñaladas,puñalada,,4.0,177
+2019,anual,provincia,la Ciudad Autónoma de Buenos Aires,CABA,,24.0,177
+2019,anual,provincia,Chaco,Chaco,,1.0,177
+2019,anual,provincia,Corrientes,Corrientes,,3.0,177
+2019,anual,provincia,Entre Ríos,Entre Ríos,,27.0,177
+2019,anual,provincia,Formosa,Formosa,,1.0,177
+2019,anual,provincia,Jujuy,Jujuy,,5.0,177
+2019,anual,provincia,La Rioja,La Rioja,,2.0,177
+2019,anual,provincia,Mendoza,Mendoza,,12.0,177
+2019,anual,provincia,Río Negro,Río Negro,,24.0,177
+2019,anual,provincia,Salta,Salta,,12.0,177
+2019,anual,provincia,Santa Cruz,Santa Cruz,,1.0,177
+2019,anual,provincia,Santiago del Estero,Santiago del Estero,,5.0,177
+2019,anual,rango_etario,20-29,20-29,,35.29,177
+2019,anual,rango_etario,30-39,30-39,,14.71,177
+2019,anual,rango_etario,40-49,40-49,,8.82,177
+2019,anual,rango_etario,50-59,50-59,,4.9,177
+2020,semestral,autoria,Estado en general (25),estado,,13.0,69
+2020,semestral,autoria,por clientes del,por_clientes_del,,8.0,69
+2020,semestral,autoria,Privados,privados,35.0,13.0,69
+2020,semestral,autoria,Privados (35),privados_(35),,51.0,69
+2020,semestral,identidad_victima,Gays (11),gay_cis,,16.0,69
+2020,semestral,identidad_victima,Lesbianas,lesbiana,3.0,78.0,69
+2020,semestral,identidad_victima,"DE CRÍMENES DE ODIO
+2%
+4% Mujeres trans",mujer_trans,54.0,16.0,69
+2020,semestral,lugar_fisico,Comisaria / Penal,comisaria_penal,,11.0,69
+2020,semestral,lugar_fisico,Establecimiento privado de acceso,establecimiento_privado,,29.0,69
+2020,semestral,lugar_fisico,Establecimiento público,establecimiento_publico,,7.0,69
+2020,semestral,provincia,la Ciudad Autónoma de Buenos Aires,CABA,,16.0,69
+2020,semestral,provincia,Chaco,Chaco,,7.0,69
+2020,semestral,provincia,Chubut,Chubut,,1.0,69
+2020,semestral,provincia,Córdoba,Córdoba,,9.0,69
+2020,semestral,provincia,Entre Ríos,Entre Ríos,,4.0,69
+2020,semestral,provincia,Jujuy,Jujuy,,16.0,69
+2020,semestral,provincia,Mendoza,Mendoza,,1.0,69
+2020,semestral,provincia,Misiones,Misiones,,7.0,69
+2020,semestral,provincia,Salta,Salta,,9.0,69
+2020,semestral,provincia,San Juan,San Juan,,4.0,69
+2020,semestral,provincia,Santa Cruz,Santa Cruz,,1.0,69
+2020,semestral,provincia,cada una Santiago del Estero,Santiago del Estero,,4.0,69
+2020,semestral,tipo_violacion,"EN LOS CRÍMENES DE ODIO
+46% Derecho a la vida",derecho_a_la_vida,32.0,54.0,69
+2020,semestral,tipo_violacion,Derecho a la integridad física (37),integridad_fisica,,54.0,69
+2020,semestral,vinculo_agresor,Cliente (3),cliente_(3),,8.0,69
+2020,semestral,vinculo_agresor,Cliente,cliente_trabajo_sexual,3.0,17.0,69
+2020,semestral,vinculo_agresor,Novio/a –Pareja Ex Novio/a -Ex,pareja_noviazgo,,17.0,69
+2020,semestral,vinculo_agresor,víctima (9),victima_(9),,6.0,69
+2021,semestral,autoria,Privados (30),privados_(30),,57.0,53
+2021,semestral,identidad_victima,Gays,gay_cis,6.0,76.0,53
+2021,semestral,identidad_victima,Varones trans (5),mujer_trans,,76.0,53
+2021,semestral,lugar_fisico,Comisaria / Penal,comisaria_penal,,6.0,53
+2021,semestral,lugar_fisico,Vivienda de la persona agresora,vivienda_agresor,,36.0,53
+2021,semestral,modalidad,Ahogo (1),ahogo,,2.0,53
+2021,semestral,modalidad,Corte/s,corte,4.0,15.0,53
+2021,semestral,modalidad,Asfixia (2),estrangulamiento,,6.0,53
+2021,semestral,modalidad,Fuego / calcinamiento,fuego_calcinamiento,1.0,2.0,53
+2021,semestral,modalidad,Lesiones autoinflingidas (4),lesiones_autoinflingidas_(4),,8.0,53
+2021,semestral,modalidad,Privación ilegítima de la libertad,privacion_ilegitima_de_la_libertad,2.0,5.0,53
+2021,semestral,modalidad,Puñalada/s (3),puñalada,,6.0,53
+2021,semestral,provincia,Chaco,Chaco,,7.55,53
+2021,semestral,provincia,Corrientes,Corrientes,,5.66,53
+2021,semestral,provincia,Jujuy,Jujuy,,7.55,53
+2021,semestral,provincia,Misiones,Misiones,,1.89,53
+2021,semestral,provincia,Neuquén,Neuquén,,3.77,53
+2021,semestral,provincia,Tierra del Fuego,Tierra del Fuego,,1.89,53
+2021,semestral,provincia,Tucumán,Tucumán,,5.66,53
+2021,semestral,provincia,Capital Federal,capital_federal,,7.55,53
+2021,semestral,tipo_violacion,"EN LOS CRÍMENES DE ODIO
+34% Derecho a la vida",derecho_a_la_vida,35.0,66.0,53
+2021,semestral,tipo_violacion,Derecho a la integridad física,integridad_fisica,,66.0,53
+2021,semestral,vinculo_agresor,Cliente (3),cliente_(3),,10.0,53
+2021,semestral,vinculo_agresor,Cliente,cliente_trabajo_sexual,3.0,13.0,53
+2021,semestral,vinculo_agresor,Novie - Pareja (3),pareja_noviazgo,,13.0,53
+2021,semestral,vinculo_agresor,Si misme,si_misme,4.0,7.0,53
+2021,semestral,vinculo_agresor,víctima (4),victima_(4),,37.0,53
+2022,anual,autoria,"son llevados a cabo por el Estado y, dentro de este porcentaj",estado,,61.0,129
+2022,anual,autoria,soncometidosporpersonasprivadas,soncometidosporpersonasprivadas,,30.0,129
+2022,anual,identidad_victima,los varones gays cis,gay_cis,15.0,12.0,129
+2022,anual,identidad_victima,mujeres trans,mujer_trans,108.0,84.0,129
+2022,anual,lugar_fisico,a establecimientos públicos,establecimiento_publico,,7.0,129
+2022,anual,lugar_fisico,en otra vivienda,otra_vivienda,,7.0,129
+2022,anual,lugar_fisico,ocurrieron en Rutas/caminos,ruta,,2.0,129
+2022,anual,lugar_fisico,en viviendas compartidas,vivienda_compartida,,2.0,129
+2022,anual,modalidad,"loscasosdeestrangulamiento,ahorcamientoy/oasfixia",estrangulamiento,,3.1,129
+2022,anual,modalidad,"cada uno, los casos de corte/s y de fuego /",fuego_calcinamiento,,1.5,129
+2022,anual,modalidad,los golpes como modalidad,golpes,,25.0,129
+2022,anual,modalidad,losde,losde,,3.1,129
+2022,anual,provincia,Córdoba,Córdoba,,3.1,129
+2022,anual,provincia,Santa Fe,Santa Fe,,5.4,129
+2022,anual,provincia,Tucumán,Tucumán,,6.2,129
+2022,anual,provincia,"la provinciade Santiago
+del Estero","la_provinciade_santiago
+del_estero",,10.1,129
+2022,anual,rango_etario,20-29,20-29,,12.5,129
+2022,anual,rango_etario,30-39,30-39,,21.25,129
+2022,anual,rango_etario,50-59,50-59,,5.0,129
+2022,anual,tipo_muerte,de los casos son asesinatos y el,asesinato,,20.0,129
+2022,anual,tipo_muerte,restante son casos de muertes por violencia estructural,muerte_estructural,,80.0,129
+2022,anual,tipo_violacion,deloscasos(89)correspondena,deloscasos(89)correspondena,,69.0,129
+2023,anual,autoria,son llevados a cabo por el Estado,estado,,71.0,133
+2023,anual,autoria,son cometidos por personas,son_cometidos_por_personas,,26.0,133
+2023,anual,identidad_victima,los varones gays cis,gay_cis,7.0,5.0,133
+2023,anual,identidad_victima,Lesbianas,lesbiana,2.0,1.5,133
+2023,anual,identidad_victima,mujeres trans,mujer_trans,118.0,89.0,133
+2023,anual,identidad_victima,Personas No binarias,no_binarie,3.0,2.26,133
+2023,anual,identidad_victima,Varones trans,varón_trans,3.0,5.26,133
+2023,anual,lugar_fisico,Establecimiento privado de,establecimiento_privado,,6.0,133
+2023,anual,lugar_fisico,Ruta / Camino,ruta,,24.0,133
+2023,anual,lugar_fisico,"de los casos, se encuentran los vehículos y por",vehiculo,,4.0,133
+2023,anual,lugar_fisico,Vivienda de la víctima,vivienda_victima,,24.0,133
+2023,anual,provincia,Catamarca,Catamarca,,4.4,133
+2023,anual,provincia,"Córdoba
+Salta",Córdoba,,4.4,133
+2023,anual,provincia,"La Rioja
+Mendoza
+Entre Ríos",Entre Ríos,,4.4,133
+2023,anual,provincia,"San Juan
+Jujuy",Jujuy,,17.6,133
+2023,anual,provincia,Neuquén,Neuquén,,2.9,133
+2023,anual,provincia,Río Negro,Río Negro,,1.5,133
+2023,anual,provincia,San Luis,San Luis,,1.5,133
+2023,anual,provincia,Santa Cruz,Santa Cruz,,32.4,133
+2023,anual,provincia,Santa Fe,Santa Fe,,2.9,133
+2023,anual,provincia,Santiago del Estero,Santiago del Estero,,1.5,133
+2023,anual,provincia,"de crímenes de odio se encuentra la provincia de
+Tucumán",Tucumán,,8.8,133
+2023,anual,rango_etario,20-29,20-29,,13.73,133
+2023,anual,rango_etario,30-39,30-39,,27.45,133
+2023,anual,rango_etario,40-49,40-49,,21.57,133
+2023,anual,rango_etario,50-59,50-59,,5.88,133
+2023,anual,rango_etario,60-69,60-69,,1.96,133
+2023,anual,rango_etario,70-79,70-79,,27.45,133
+2024,anual,autoria,son llevados a cabo por el Estado,estado,,46.0,140
+2024,anual,autoria,son cometidos por personas,son_cometidos_por_personas,,52.0,140
+2024,anual,identidad_victima,los varones gays cis,gay_cis,32.0,23.0,140
+2024,anual,identidad_victima,las personas no,las_personas_no,,1.0,140
+2024,anual,identidad_victima,las víctimas son lesbianas,lesbiana,11.0,8.0,140
+2024,anual,identidad_victima,mujeres trans,mujer_trans,90.0,64.0,140
+2024,anual,identidad_victima,Personas no binarias (2),no_binarie,,8.0,140
+2024,anual,identidad_victima,Varones trans,varón_trans,5.0,1.0,140
+2024,anual,lugar_fisico,Comisaría / Penal,comisaria_penal,,35.0,140
+2024,anual,lugar_fisico,Descampado / Terreno baldío /,descampado,,1.0,140
+2024,anual,lugar_fisico,Establecimiento privado,establecimiento_privado,,24.0,140
+2024,anual,lugar_fisico,Otra vivienda,otra_vivienda,,5.0,140
+2024,anual,lugar_fisico,Vivienda compartida,vivienda_compartida,,18.0,140
+2024,anual,provincia,Catamarca,Catamarca,,47.1,140
+2024,anual,provincia,Chubut,Chubut,,1.4,140
+2024,anual,provincia,Córdoba,Córdoba,,0.8,140
+2024,anual,provincia,Entre Ríos,Entre Ríos,,28.6,140
+2024,anual,provincia,"de crímenes de odio se
+encuentra la provincia de Jujuy",Jujuy,,4.3,140
+2024,anual,provincia,San Juan,San Juan,,2.9,140
+2024,anual,rango_etario,10-19,10-19,,32.2,140
+2024,anual,rango_etario,20-29,20-29,,3.39,140
+2024,anual,rango_etario,30-39,30-39,,32.2,140
+2024,anual,rango_etario,40-49,40-49,,18.64,140
+2024,anual,rango_etario,50-59,50-59,,16.95,140
+2024,anual,rango_etario,60-69,60-69,,1.7,140
+2025,anual,autoria,B3n_penal,b3n_penal,,3.0,227
+2025,anual,identidad_victima,Lesbianas,lesbiana,13.0,62.56,227
+2025,anual,identidad_victima,Mujeres trans (142),mujer_trans,,7.93,227
+2025,anual,identidad_victima,Personas no binarias (4),no_binarie,,62.56,227
+2025,anual,identidad_victima,Varones trans,varón_trans,18.0,22.03,227
+2025,anual,lugar_fisico,Comisaría / Penal,comisaria_penal,,1.29,227
+2025,anual,lugar_fisico,Establecimiento privado de acceso público,establecimiento_privado,,32.26,227
+2025,anual,lugar_fisico,respecto del año,respecto_del_ano,,60.0,227
+2025,anual,lugar_fisico,Vía pública,via_publica,,5.16,227
+2025,anual,lugar_fisico,Vivienda compartida,vivienda_compartida,,20.0,227
+2025,anual,lugar_fisico,Vivienda de la víctima,vivienda_victima,,7.1,227
+2025,anual,provincia,Buenos Aires,Buenos Aires,,0.45,227
+2025,anual,provincia,Catamarca,Catamarca,,4.04,227
+2025,anual,provincia,Chaco,Chaco,,43.5,227
+2025,anual,provincia,Chubut,Chubut,,26.91,227
+2025,anual,provincia,Corrientes,Corrientes,,2.24,227
+2025,anual,provincia,Córdoba,Córdoba,,0.9,227
+2025,anual,provincia,Entre Ríos,Entre Ríos,,2.69,227
+2025,anual,provincia,Mendoza,Mendoza,,4.48,227
+2025,anual,provincia,Neuquén,Neuquén,,0.45,227
+2025,anual,provincia,Salta,Salta,,1.79,227
+2025,anual,provincia,Santa Fe,Santa Fe,,0.45,227
+2025,anual,provincia,Santiago del Estero,Santiago del Estero,,1.79,227
+2025,anual,provincia,Tucuman,Tucumán,,1.79,227
+2025,anual,provincia,Capital Federal,capital_federal,,0.9,227
+2025,anual,rango_etario,10-19,10-19,,0.99,227
+2025,anual,rango_etario,20-29,20-29,,32.67,227
+2025,anual,rango_etario,30-39,30-39,,20.79,227
+2025,anual,rango_etario,40-49,40-49,,12.87,227
+2025,anual,rango_etario,50-59,50-59,,5.94,227
+2025,anual,rango_etario,60-69,60-69,,2.97,227

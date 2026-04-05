@@ -1,0 +1,24 @@
+# Python
+scripts/.venv/
+scripts/__pycache__/
+scripts/**/__pycache__/
+scripts/**/*.pyc
+data/raw/
+
+# Credenciales
+scripts/.env
+frontend/.env
+
+# Node
+frontend/node_modules/
+frontend/dist/
+
+# Misc
+.DS_Store
+Thumbs.db
+
+# Claude Code
+.claude/
+.agents/
+CLAUDE.md
+skills-lock.json

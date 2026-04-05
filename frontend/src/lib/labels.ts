@@ -1,0 +1,85 @@
+export const DIMENSION_LABELS: Record<string, string> = {
+  identidad_victima: 'Identidad de las víctimas',
+  provincia:         'Distribución geográfica',
+  autoria:           'Autoría',
+  tipo_violacion:    'Derechos lesionados',
+  tipo_muerte:       'Tipo de muerte',
+  modalidad:         'Modalidad del crimen',
+  vinculo_agresor:   'Vínculo víctima-agresor',
+  rango_etario:      'Distribución etaria',
+  lugar_fisico:      'Lugar físico',
+}
+
+export const CATEGORY_LABELS: Record<string, Record<string, string>> = {
+  identidad_victima: {
+    mujer_trans:   'Mujeres trans / travestis',
+    gay_cis:       'Varones gays cis',
+    lesbiana:      'Lesbianas',
+    'varón_trans': 'Varones trans',
+    no_binarie:    'Personas no binarias',
+  },
+  autoria: {
+    persona_privada:   'Personas privadas',
+    estado:            'Estado (en general)',
+    fuerzas_seguridad: 'Fuerzas de seguridad',
+  },
+  tipo_violacion: {
+    derecho_a_la_vida: 'Derecho a la vida',
+    integridad_fisica: 'Integridad física',
+  },
+  tipo_muerte: {
+    asesinato:         'Asesinato',
+    muerte_estructural:'Muerte estructural',
+    suicidio:          'Suicidio',
+  },
+  modalidad: {
+    golpes:                          'Golpes',
+    balazo:                          'Balazo',
+    puñalada:                        'Puñalada',
+    estrangulamiento:                'Estrangulamiento / Asfixia',
+    corte:                           'Cortes',
+    fuego_calcinamiento:             'Fuego / Calcinamiento',
+    abuso_sexual:                    'Abuso sexual',
+    empujones__forcejeos:            'Empujones / Forcejeos',
+    lesiones_autoinflingidas:        'Lesiones autoinfligidas',
+    privacion_ilegitima_de_la_libertad: 'Privación ilegítima de la libertad',
+    mutilacion:                      'Mutilación',
+    otro:                            'Otro',
+    ahogo:                           'Ahogamiento',
+  },
+  vinculo_agresor: {
+    desconocido:          'Desconocido',
+    pareja_noviazgo:      'Pareja / Ex pareja',
+    cliente_trabajo_sexual: 'Cliente (trabajo sexual)',
+    vecino_conocido:      'Vecino / Conocido',
+    si_misme:             'La propia persona',
+    familiar:             'Familiar',
+    autoridad:            'Autoridad',
+  },
+  rango_etario: {
+    '10-19': '10–19 años',
+    '20-29': '20–29 años',
+    '30-39': '30–39 años',
+    '40-49': '40–49 años',
+    '50-59': '50–59 años',
+    '60-69': '60–69 años',
+    '70-79': '70–79 años',
+  },
+  lugar_fisico: {
+    via_publica:           'Vía pública',
+    vivienda_victima:      'Vivienda de la víctima',
+    vivienda_agresor:      'Vivienda del agresor',
+    vivienda_compartida:   'Vivienda compartida',
+    otra_vivienda:         'Otra vivienda',
+    comisaria_penal:       'Comisaría / Penal',
+    establecimiento_publico: 'Establecimiento público',
+    establecimiento_privado: 'Establecimiento privado',
+    descampado:            'Descampado / Terreno baldío',
+    ruta:                  'Ruta / Camino',
+    vehiculo:              'Vehículo',
+  },
+}
+
+export function getLabel(dimension: string, categoria: string): string {
+  return CATEGORY_LABELS[dimension]?.[categoria] ?? categoria.replace(/_/g, ' ')
+}
