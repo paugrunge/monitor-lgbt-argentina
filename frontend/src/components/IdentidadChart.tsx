@@ -8,6 +8,7 @@ import {
   Cell,
   ResponsiveContainer,
 } from 'recharts'
+import { TOOLTIP_STYLE } from '../lib/chartStyles'
 
 const IDENTITY_COLORS: Record<string, string> = {
   mujer_trans: '#7c3aed',
@@ -74,14 +75,7 @@ export function IdentidadChart({ data, anioSeleccionado }: Props) {
             width={190}
           />
           <Tooltip
-            contentStyle={{
-              backgroundColor: '#18181b',
-              border: '1px solid #3f3f46',
-              borderRadius: 8,
-              color: '#fff',
-            }}
-            labelStyle={{ color: '#a1a1aa' }}
-            itemStyle={{ color: '#e4e4e7' }}
+            {...TOOLTIP_STYLE}
             formatter={(value, _name, props) => {
               const v = Number(value)
               const conteo = props.payload.conteo

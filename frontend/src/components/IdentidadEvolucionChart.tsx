@@ -9,6 +9,7 @@ import {
   ResponsiveContainer,
 } from 'recharts'
 import type { Estadistica } from '../lib/supabase'
+import { TOOLTIP_STYLE } from '../lib/chartStyles'
 
 const IDENTITY_COLORS: Record<string, string> = {
   mujer_trans:   '#a78bfa',  // violet-400  — destacada, más brillante
@@ -68,13 +69,7 @@ export function IdentidadEvolucionChart({ data, años }: Props) {
             width={40}
           />
           <Tooltip
-            contentStyle={{
-              backgroundColor: '#18181b',
-              border: '1px solid #3f3f46',
-              borderRadius: 8,
-            }}
-            labelStyle={{ color: '#a1a1aa' }}
-            itemStyle={{ color: '#e4e4e7' }}
+            {...TOOLTIP_STYLE}
             formatter={(value, name) => [
               `${Number(value)}%`,
               IDENTITY_LABELS[String(name)] ?? String(name),

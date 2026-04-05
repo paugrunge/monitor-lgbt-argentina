@@ -1,4 +1,5 @@
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from 'recharts'
+import { TOOLTIP_STYLE } from '../lib/chartStyles'
 
 type Entry = {
   name: string
@@ -18,13 +19,13 @@ export function DonutChart({ data, title, insight }: Props) {
   return (
     <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
       <h2 className="text-white font-semibold mb-1">{title}</h2>
-      {insight && <p className="text-zinc-400 text-sm mb-4">{insight}</p>}
-      <ResponsiveContainer width="100%" height={260}>
-        <PieChart>
+      {insight && <p className="text-zinc-500 text-sm mb-6">{insight}</p>}
+      <ResponsiveContainer width="100%" height={300}>
+        <PieChart margin={{ top: 8, right: 8, bottom: 8, left: 8 }}>
           <Pie
             data={data}
             cx="50%"
-            cy="50%"
+            cy="45%"
             innerRadius={70}
             outerRadius={100}
             paddingAngle={3}
@@ -35,13 +36,7 @@ export function DonutChart({ data, title, insight }: Props) {
             ))}
           </Pie>
           <Tooltip
-            contentStyle={{
-              backgroundColor: '#18181b',
-              border: '1px solid #3f3f46',
-              borderRadius: 8,
-            }}
-            labelStyle={{ color: '#a1a1aa' }}
-            itemStyle={{ color: '#e4e4e7' }}
+            {...TOOLTIP_STYLE}
             formatter={(value, name, props) => {
               const v = Number(value)
               const conteo = props.payload.conteo

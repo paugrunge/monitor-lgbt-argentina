@@ -65,7 +65,7 @@ export function ViolenciaPage() {
     return `${vida.porcentaje.toFixed(1)}% de los crímenes lesionan el derecho a la vida${anio ? ` en ${anio}` : ''}.`
   }, [data, anio])
 
-  if (loading) return <div className="p-10 text-zinc-500">Cargando...</div>
+  if (loading) return <div className="flex items-center justify-center min-h-[60vh] text-zinc-500 text-sm">Cargando datos...</div>
 
   return (
     <PageShell

@@ -24,7 +24,7 @@ export function VictimasPage() {
     return `Las mujeres trans y travestis representan el ${top.porcentaje?.toFixed(1)}% de las víctimas${anio ? ` en ${anio}` : ', siendo el grupo más afectado en todos los años relevados'}.`
   }, [data, anio])
 
-  if (loading) return <div className="p-10 text-zinc-500">Cargando...</div>
+  if (loading) return <div className="flex items-center justify-center min-h-[60vh] text-zinc-500 text-sm">Cargando datos...</div>
 
   return (
     <PageShell

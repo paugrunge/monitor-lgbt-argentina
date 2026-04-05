@@ -79,7 +79,7 @@ export function Home() {
 
       {/* Métricas clave */}
       <section className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-5 flex items-start gap-4">
+        <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6 flex items-start gap-4">
           <div className="bg-violet-500/10 p-2 rounded-lg">
             <TrendingUp size={20} className="text-violet-400" />
           </div>
@@ -88,7 +88,7 @@ export function Home() {
             <p className="text-3xl font-bold text-white">{totalUltimoAnio}</p>
           </div>
         </div>
-        <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-5 flex items-start gap-4">
+        <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6 flex items-start gap-4">
           <div className="bg-violet-500/10 p-2 rounded-lg">
             <Users size={20} className="text-violet-400" />
           </div>
@@ -102,7 +102,7 @@ export function Home() {
             </p>
           </div>
         </div>
-        <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-5 flex items-start gap-4">
+        <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6 flex items-start gap-4">
           <div className="bg-violet-500/10 p-2 rounded-lg">
             <MapPin size={20} className="text-violet-400" />
           </div>
