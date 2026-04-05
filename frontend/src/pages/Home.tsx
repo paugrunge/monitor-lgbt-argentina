@@ -69,7 +69,7 @@ export function Home() {
         </div>
         <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">
           Crímenes de odio<br />
-          <span className="text-violet-500">contra la comunidad LGBT+</span>
+          <span className="text-violet-500">contra la comunidad LGBT+ 🏳️‍🌈</span>
         </h1>
         <p className="text-zinc-400 text-lg max-w-2xl">
           Visualización de los datos del Observatorio Nacional de Crímenes de Odio LGBT+.
