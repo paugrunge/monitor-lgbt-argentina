@@ -1,4 +1,6 @@
+import { useMemo } from 'react'
 import { ExternalLink } from 'lucide-react'
+import { useData } from '../context/EstadisticasContext'
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -24,6 +26,11 @@ function Link({ href, children }: { href: string; children: React.ReactNode }) {
 }
 
 export function AcercaDePage() {
+  const { data } = useData()
+  const años = useMemo(() => [...new Set(data.map((d) => d.anio))].sort(), [data])
+  const primerAnio = años[0] ?? 2016
+  const ultimoAnio = años[años.length - 1] ?? 2025
+
   return (
     <main className="px-6 py-10 max-w-3xl mx-auto space-y-10">
       <section className="space-y-3">
@@ -50,7 +57,7 @@ export function AcercaDePage() {
           .
         </p>
         <p>
-          Los informes cubren el período 2016–2025 y registran casos de violencia por odio a la
+          Los informes cubren el período {primerAnio}–{ultimoAnio} y registran casos de violencia por odio a la
           orientación sexual e identidad de género, incluyendo asesinatos, suicidios vinculados a
           la discriminación y otras formas de violencia física.
         </p>
