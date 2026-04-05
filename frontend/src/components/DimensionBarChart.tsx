@@ -77,10 +77,10 @@ export function DimensionBarChart({
           <YAxis
             type="category"
             dataKey="name"
-            tick={{ fill: '#a1a1aa', fontSize: 12 }}
+            tick={{ fill: '#a1a1aa', fontSize: 11 }}
             axisLine={false}
             tickLine={false}
-            width={210}
+            width={160}
           />
           <Tooltip
             {...TOOLTIP_STYLE}

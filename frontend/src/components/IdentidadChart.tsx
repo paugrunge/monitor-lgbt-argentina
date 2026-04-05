@@ -69,10 +69,10 @@ export function IdentidadChart({ data, anioSeleccionado }: Props) {
           <YAxis
             type="category"
             dataKey="name"
-            tick={{ fill: '#a1a1aa', fontSize: 12 }}
+            tick={{ fill: '#a1a1aa', fontSize: 11 }}
             axisLine={false}
             tickLine={false}
-            width={190}
+            width={160}
           />
           <Tooltip
             {...TOOLTIP_STYLE}

@@ -61,7 +61,7 @@ export function Home() {
   }
 
   return (
-    <main className="px-6 py-10 max-w-6xl mx-auto space-y-10">
+    <main className="px-4 sm:px-6 py-8 sm:py-10 max-w-6xl mx-auto space-y-10">
       {/* Hero */}
       <section className="space-y-4">
         <div className="inline-block bg-violet-500/10 border border-violet-500/30 text-violet-400 text-xs font-medium px-3 py-1 rounded-full">
@@ -123,7 +123,7 @@ export function Home() {
           <span className="text-zinc-500 text-sm">Filtrar por año:</span>
           <YearFilter años={años} value={anioSeleccionado} onChange={setAnioSeleccionado} />
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <IdentidadChart data={identidades} anioSeleccionado={anioSeleccionado} />
           <ProvinciasChart data={provincias} anio={anioSeleccionado} />
         </div>
