@@ -58,10 +58,11 @@ export function RangoEtarioChart({ data, subtitle }: Props) {
             }}
             labelStyle={{ color: '#a1a1aa' }}
             itemStyle={{ color: '#e4e4e7' }}
-            formatter={(value: number, _name, props) => {
+            formatter={(value, _name, props) => {
+              const v = Number(value)
               const conteo = props.payload.conteo
               return [
-                conteo != null ? `${value}% (${conteo} casos)` : `${value}%`,
+                conteo != null ? `${v}% (${conteo} casos)` : `${v}%`,
                 'Proporción',
               ]
             }}

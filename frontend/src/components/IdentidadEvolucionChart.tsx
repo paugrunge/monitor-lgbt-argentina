@@ -75,8 +75,8 @@ export function IdentidadEvolucionChart({ data, años }: Props) {
             }}
             labelStyle={{ color: '#a1a1aa' }}
             itemStyle={{ color: '#e4e4e7' }}
-            formatter={(v: number, name: string) => [
-              `${v}%`,
+            formatter={(value, name: string) => [
+              `${Number(value)}%`,
               IDENTITY_LABELS[name] ?? name,
             ]}
             itemSorter={(item) => -(item.value as number)}

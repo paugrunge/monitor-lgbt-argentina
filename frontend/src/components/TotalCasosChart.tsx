@@ -51,7 +51,7 @@ export function TotalCasosChart({ data }: Props) {
             }}
             labelStyle={{ color: '#a1a1aa' }}
             itemStyle={{ color: '#e4e4e7' }}
-            formatter={(value: number) => [value, 'Casos']}
+            formatter={(value) => [Number(value), 'Casos']}
           />
           <Area
             type="monotone"
