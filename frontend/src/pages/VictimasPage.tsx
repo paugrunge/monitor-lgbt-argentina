@@ -2,7 +2,8 @@ import { useMemo, useState } from 'react'
 import { useData } from '../context/EstadisticasContext'
 import { PageShell } from '../components/PageShell'
 import { IdentidadChart } from '../components/IdentidadChart'
-import { DimensionBarChart } from '../components/DimensionBarChart'
+import { RangoEtarioChart } from '../components/RangoEtarioChart'
+import { IdentidadEvolucionChart } from '../components/IdentidadEvolucionChart'
 import { agregarTodosLosAnios } from '../lib/utils'
 
 export function VictimasPage() {
@@ -17,6 +18,12 @@ export function VictimasPage() {
     return agregarTodosLosAnios(filas)
   }
 
+  const insightIdentidad = useMemo(() => {
+    const top = filtrar('identidad_victima').sort((a, b) => (b.porcentaje ?? 0) - (a.porcentaje ?? 0))[0]
+    if (!top) return null
+    return `Las mujeres trans y travestis representan el ${top.porcentaje?.toFixed(1)}% de las víctimas${anio ? ` en ${anio}` : ', siendo el grupo más afectado en todos los años relevados'}.`
+  }, [data, anio])
+
   if (loading) return <div className="p-10 text-zinc-500">Cargando...</div>
 
   return (
@@ -27,13 +34,16 @@ export function VictimasPage() {
       anio={anio}
       onAnioChange={setAnio}
     >
+      {insightIdentidad && (
+        <p className="text-violet-300 text-sm bg-violet-950/40 border border-violet-800/40 rounded-xl px-5 py-3">
+          {insightIdentidad}
+        </p>
+      )}
       <IdentidadChart data={filtrar('identidad_victima')} anioSeleccionado={anio} />
-      <DimensionBarChart
-        dimension="rango_etario"
+      <IdentidadEvolucionChart data={data} años={años} />
+      <RangoEtarioChart
         data={filtrar('rango_etario')}
-        title="Distribución etaria"
-        subtitle={anio ? `Año ${anio}` : 'Último dato disponible por rango'}
-        color="#8b5cf6"
+        subtitle={anio ? `Año ${anio}` : 'Datos agregados de todos los años'}
       />
     </PageShell>
   )

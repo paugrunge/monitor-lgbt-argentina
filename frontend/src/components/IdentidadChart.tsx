@@ -42,6 +42,8 @@ export function IdentidadChart({ data, anioSeleccionado }: Props) {
     conteo: d.conteo,
   }))
 
+  if (chartData.length === 0 || chartData.every((d) => !d.porcentaje)) return null
+
   return (
     <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
       <h2 className="text-white font-semibold mb-1">Identidad de las víctimas</h2>

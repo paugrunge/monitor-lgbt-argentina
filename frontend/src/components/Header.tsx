@@ -7,13 +7,14 @@ const NAV = [
   { to: '/violencia', label: 'Violencia' },
   { to: '/autoria',   label: 'Autoría' },
   { to: '/geografia', label: 'Geografía' },
+  { to: '/acerca',    label: 'Acerca de' },
 ]
 
 export function Header() {
   return (
     <header className="border-b border-zinc-800 px-6 py-3 flex flex-col sm:flex-row sm:items-center gap-3">
       <span className="text-violet-500 font-semibold tracking-tight text-sm uppercase shrink-0">
-        Monitor LGBT+ Argentina
+        Monitor LGBT+ Argentina 🏳️‍🌈
       </span>
 
       <nav className="flex items-center gap-1 flex-1">

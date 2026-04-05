@@ -6,6 +6,7 @@ import { VictimasPage } from './pages/VictimasPage'
 import { ViolenciaPage } from './pages/ViolenciaPage'
 import { AutoriaPage } from './pages/AutoriaPage'
 import { GeografiaPage } from './pages/GeografiaPage'
+import { AcercaDePage } from './pages/AcercaDePage'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path="/violencia" element={<ViolenciaPage />} />
             <Route path="/autoria"   element={<AutoriaPage />} />
             <Route path="/geografia" element={<GeografiaPage />} />
+            <Route path="/acerca"    element={<AcercaDePage />} />
           </Routes>
         </div>
       </EstadisticasProvider>

@@ -6,8 +6,7 @@ type Props = {
 
 export function YearFilter({ años, value, onChange }: Props) {
   return (
-    <div className="flex flex-col gap-1">
-      <label className="text-xs text-zinc-500 uppercase tracking-wider">Año</label>
+    <div>
       <select
         value={value ?? ''}
         onChange={(e) => onChange(e.target.value ? Number(e.target.value) : null)}

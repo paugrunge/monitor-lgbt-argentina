@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react'
 import { useData } from '../context/EstadisticasContext'
 import { PageShell } from '../components/PageShell'
 import { ProvinciasChart } from '../components/ProvinciasChart'
+import { ProvinciaHeatmap } from '../components/ProvinciaHeatmap'
 import { agregarTodosLosAnios } from '../lib/utils'
 import {
   LineChart,
@@ -67,6 +68,7 @@ export function GeografiaPage() {
       onAnioChange={setAnio}
     >
       <ProvinciasChart data={provinciasFiltradas} anio={anio} />
+      <ProvinciaHeatmap data={data} años={años} />
 
       <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
         <h2 className="text-white font-semibold mb-1">Evolución por provincia</h2>

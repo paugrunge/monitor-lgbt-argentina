@@ -17,7 +17,10 @@ export function PageShell({ title, description, años, anio, onAnioChange, child
         <h1 className="text-3xl font-bold text-white">{title}</h1>
         <p className="text-zinc-400 text-base max-w-2xl">{description}</p>
       </section>
-      <YearFilter años={años} value={anio} onChange={onAnioChange} />
+      <div className="flex items-center gap-4">
+        <span className="text-zinc-500 text-sm">Filtrar por año:</span>
+        <YearFilter años={años} value={anio} onChange={onAnioChange} />
+      </div>
       <div className="space-y-6">{children}</div>
     </main>
   )
