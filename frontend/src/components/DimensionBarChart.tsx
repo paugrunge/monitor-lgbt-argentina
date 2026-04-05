@@ -50,6 +50,8 @@ export function DimensionBarChart({
     .map(([name, v]) => ({ name, ...v }))
     .sort((a, b) => b.porcentaje - a.porcentaje)
 
+  if (sorted.length === 0 || sorted.every((d) => !d.porcentaje)) return null
+
   const height = Math.max(200, sorted.length * 44)
 
   return (

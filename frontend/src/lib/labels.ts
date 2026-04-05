@@ -29,7 +29,7 @@ export const CATEGORY_LABELS: Record<string, Record<string, string>> = {
   tipo_violacion: {
     derecho_a_la_vida: 'Derecho a la vida',
     integridad_fisica:  'Integridad física',
-    asesinato:          'Asesinato',
+    asesinato:          'Derecho a la vida',
     violencia_fisica:   'Violencia física',
   },
   tipo_muerte: {

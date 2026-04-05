@@ -28,6 +28,8 @@ export function RangoEtarioChart({ data, subtitle }: Props) {
     }
   }).filter((d) => d.porcentaje > 0)
 
+  if (chartData.length === 0) return null
+
   return (
     <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
       <h2 className="text-white font-semibold mb-1">Distribución etaria</h2>

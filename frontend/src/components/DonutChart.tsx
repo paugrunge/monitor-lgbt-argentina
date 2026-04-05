@@ -14,6 +14,7 @@ type Props = {
 }
 
 export function DonutChart({ data, title, insight }: Props) {
+  if (data.length === 0 || data.every((d) => !d.value)) return null
   return (
     <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
       <h2 className="text-white font-semibold mb-1">{title}</h2>

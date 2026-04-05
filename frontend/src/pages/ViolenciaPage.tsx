@@ -31,15 +31,23 @@ export function ViolenciaPage() {
     return agregarTodosLosAnios(filas)
   }
 
-  const violacionData = useMemo(() =>
-    filtrar('tipo_violacion').map((d) => ({
-      name: getLabel('tipo_violacion', d.categoria),
-      value: d.porcentaje ?? 0,
-      conteo: d.conteo,
-      color: VIOLACION_COLORS[d.categoria] ?? '#6d28d9',
-    })),
-    [data, anio],
-  )
+  const violacionData = useMemo(() => {
+    const merged = new Map<string, { value: number; conteo: number | null; color: string }>()
+    filtrar('tipo_violacion').forEach((d) => {
+      const name = getLabel('tipo_violacion', d.categoria)
+      const color = VIOLACION_COLORS[d.categoria] ?? '#6d28d9'
+      const existing = merged.get(name)
+      if (!existing) {
+        merged.set(name, { value: d.porcentaje ?? 0, conteo: d.conteo, color })
+      } else {
+        existing.value += d.porcentaje ?? 0
+        existing.conteo = existing.conteo != null && d.conteo != null
+          ? existing.conteo + d.conteo
+          : existing.conteo ?? d.conteo
+      }
+    })
+    return [...merged.entries()].map(([name, v]) => ({ name, ...v }))
+  }, [data, anio])
 
   const muerteData = useMemo(() =>
     filtrar('tipo_muerte').map((d) => ({
