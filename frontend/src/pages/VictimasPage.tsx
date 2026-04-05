@@ -18,11 +18,14 @@ export function VictimasPage() {
     return agregarTodosLosAnios(filas)
   }
 
+  const identidades = useMemo(() => filtrar('identidad_victima'), [data, anio])
+  const rangoEtario = useMemo(() => filtrar('rango_etario'), [data, anio])
+
   const insightIdentidad = useMemo(() => {
-    const top = filtrar('identidad_victima').sort((a, b) => (b.porcentaje ?? 0) - (a.porcentaje ?? 0))[0]
+    const top = [...identidades].sort((a, b) => (b.porcentaje ?? 0) - (a.porcentaje ?? 0))[0]
     if (!top) return null
     return `Las mujeres trans y travestis representan el ${top.porcentaje?.toFixed(1)}% de las víctimas${anio ? ` en ${anio}` : ', siendo el grupo más afectado en todos los años relevados'}.`
-  }, [data, anio])
+  }, [identidades, anio])
 
   if (loading) return <div className="flex items-center justify-center min-h-[60vh] text-zinc-500 text-sm">Cargando datos...</div>
 
@@ -39,10 +42,10 @@ export function VictimasPage() {
           {insightIdentidad}
         </p>
       )}
-      <IdentidadChart data={filtrar('identidad_victima')} anioSeleccionado={anio} />
+      <IdentidadChart data={identidades} anioSeleccionado={anio} />
       <IdentidadEvolucionChart data={data} años={años} />
       <RangoEtarioChart
-        data={filtrar('rango_etario')}
+        data={rangoEtario}
         subtitle={anio ? `Año ${anio}` : 'Datos agregados de todos los años'}
       />
     </PageShell>

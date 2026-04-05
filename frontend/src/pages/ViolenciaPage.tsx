@@ -59,6 +59,8 @@ export function ViolenciaPage() {
     [data, anio],
   )
 
+  const modalidadData = useMemo(() => filtrar('modalidad'), [data, anio])
+
   const insightViolacion = useMemo(() => {
     const vida = filtrar('tipo_violacion').find((d) => d.categoria === 'derecho_a_la_vida')
     if (!vida?.porcentaje) return undefined
@@ -88,7 +90,7 @@ export function ViolenciaPage() {
       </div>
       <DimensionBarChart
         dimension="modalidad"
-        data={filtrar('modalidad')}
+        data={modalidadData}
         title="Modalidad del crimen"
         subtitle={anio ? `Año ${anio}` : 'Datos agregados de todos los años'}
         color="#8b5cf6"

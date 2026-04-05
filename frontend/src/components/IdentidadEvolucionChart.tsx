@@ -29,6 +29,12 @@ const IDENTITY_LABELS: Record<string, string> = {
 
 const IDENTIDADES = Object.keys(IDENTITY_COLORS)
 
+const renderLegendText = (value: string) => (
+  <span style={{ color: '#a1a1aa', fontSize: 12 }}>
+    {IDENTITY_LABELS[value] ?? value}
+  </span>
+)
+
 type Props = {
   data: Estadistica[]
   años: number[]
@@ -76,13 +82,7 @@ export function IdentidadEvolucionChart({ data, años }: Props) {
             ]}
             itemSorter={(item) => -(item.value as number)}
           />
-          <Legend
-            formatter={(value) => (
-              <span style={{ color: '#a1a1aa', fontSize: 12 }}>
-                {IDENTITY_LABELS[value] ?? value}
-              </span>
-            )}
-          />
+          <Legend formatter={renderLegendText} />
           {IDENTIDADES.map((id) => (
             <Line
               key={id}

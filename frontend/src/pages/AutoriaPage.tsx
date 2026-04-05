@@ -27,21 +27,25 @@ export function AutoriaPage() {
     return agregarTodosLosAnios(filas)
   }
 
+  const autoriaRaw    = useMemo(() => filtrar('autoria'),          [data, anio])
+  const vinculoData   = useMemo(() => filtrar('vinculo_agresor'),  [data, anio])
+  const lugarData     = useMemo(() => filtrar('lugar_fisico'),     [data, anio])
+
   const autoriaData = useMemo(() =>
-    filtrar('autoria').map((d) => ({
+    autoriaRaw.map((d) => ({
       name: getLabel('autoria', d.categoria),
       value: d.porcentaje ?? 0,
       conteo: d.conteo,
       color: AUTORIA_COLORS[d.categoria] ?? '#6d28d9',
     })),
-    [data, anio],
+    [autoriaRaw],
   )
 
   const insightAutoria = useMemo(() => {
-    const privados = filtrar('autoria').find((d) => d.categoria === 'persona_privada')
+    const privados = autoriaRaw.find((d) => d.categoria === 'persona_privada')
     if (!privados?.porcentaje) return undefined
     return `El ${privados.porcentaje.toFixed(1)}% de los crímenes son perpetrados por personas privadas${anio ? ` en ${anio}` : ''}.`
-  }, [data, anio])
+  }, [autoriaRaw, anio])
 
   if (loading) return <div className="flex items-center justify-center min-h-[60vh] text-zinc-500 text-sm">Cargando datos...</div>
 
@@ -61,7 +65,7 @@ export function AutoriaPage() {
         />
         <DimensionBarChart
           dimension="vinculo_agresor"
-          data={filtrar('vinculo_agresor')}
+          data={vinculoData}
           title="Vínculo víctima-agresor"
           subtitle={anio ? `Año ${anio}` : 'Datos agregados de todos los años'}
           color="#6d28d9"
@@ -69,7 +73,7 @@ export function AutoriaPage() {
       </div>
       <DimensionBarChart
         dimension="lugar_fisico"
-        data={filtrar('lugar_fisico')}
+        data={lugarData}
         title="Lugar físico"
         subtitle={anio ? `Año ${anio}` : 'Datos agregados de todos los años'}
         color="#8b5cf6"
