@@ -1,6 +1,7 @@
 import {
   BarChart,
   Bar,
+  Cell,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -30,13 +31,24 @@ export function DimensionBarChart({
   subtitle,
   color = '#7c3aed',
 }: Props) {
-  const sorted = [...data]
-    .sort((a, b) => (b.porcentaje ?? 0) - (a.porcentaje ?? 0))
-    .map((d) => ({
-      name: getLabel(dimension, d.categoria),
-      porcentaje: d.porcentaje ?? 0,
-      conteo: d.conteo,
-    }))
+  // Fusionar entradas que comparten el mismo label (ej: pareja + pareja_expareja)
+  const merged = new Map<string, { porcentaje: number; conteo: number | null }>()
+  data.forEach((d) => {
+    const name = getLabel(dimension, d.categoria)
+    const existing = merged.get(name)
+    if (!existing) {
+      merged.set(name, { porcentaje: d.porcentaje ?? 0, conteo: d.conteo })
+    } else {
+      existing.porcentaje += d.porcentaje ?? 0
+      existing.conteo = existing.conteo != null && d.conteo != null
+        ? existing.conteo + d.conteo
+        : existing.conteo ?? d.conteo
+    }
+  })
+
+  const sorted = [...merged.entries()]
+    .map(([name, v]) => ({ name, ...v }))
+    .sort((a, b) => b.porcentaje - a.porcentaje)
 
   const height = Math.max(200, sorted.length * 44)
 
@@ -83,7 +95,14 @@ export function DimensionBarChart({
               ]
             }}
           />
-          <Bar dataKey="porcentaje" fill={color} radius={[0, 4, 4, 0]} />
+          <Bar dataKey="porcentaje" fill={color} radius={[0, 4, 4, 0]}>
+            {sorted.map((entry) => (
+              <Cell
+                key={entry.name}
+                fill={entry.name === 'Sin dato' ? '#52525b' : color}
+              />
+            ))}
+          </Bar>
         </BarChart>
       </ResponsiveContainer>
     </div>

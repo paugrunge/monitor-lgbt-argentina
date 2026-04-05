@@ -22,10 +22,15 @@ export const CATEGORY_LABELS: Record<string, Record<string, string>> = {
     persona_privada:   'Personas privadas',
     estado:            'Estado (en general)',
     fuerzas_seguridad: 'Fuerzas de seguridad',
+    si_mismo:          'Si misme',
+    si_misme:          'Si misme',
+    sin_dato:          'Sin dato',
   },
   tipo_violacion: {
     derecho_a_la_vida: 'Derecho a la vida',
-    integridad_fisica: 'Integridad física',
+    integridad_fisica:  'Integridad física',
+    asesinato:          'Asesinato',
+    violencia_fisica:   'Violencia física',
   },
   tipo_muerte: {
     asesinato:         'Asesinato',
@@ -48,13 +53,20 @@ export const CATEGORY_LABELS: Record<string, Record<string, string>> = {
     ahogo:                           'Ahogamiento',
   },
   vinculo_agresor: {
-    desconocido:          'Desconocido',
-    pareja_noviazgo:      'Pareja / Ex pareja',
+    desconocido:            'Desconocido',
+    pareja_noviazgo:        'Pareja / Ex pareja',
+    pareja:                 'Pareja / Ex pareja',
+    pareja_expareja:        'Pareja / Ex pareja',
     cliente_trabajo_sexual: 'Cliente (trabajo sexual)',
-    vecino_conocido:      'Vecino / Conocido',
-    si_misme:             'La propia persona',
-    familiar:             'Familiar',
-    autoridad:            'Autoridad',
+    vecino_conocido:        'Vecino / Conocido',
+    conocido:               'Conocido',
+    si_misme:               'Si misme',
+    si_mismo:               'Si misme',
+    si_misma:               'Si misme',
+    familiar:               'Familiar',
+    autoridad:              'Autoridad',
+    otro:                   'Otro',
+    sin_dato:               'Sin dato',
   },
   rango_etario: {
     '10-19': '10–19 años',
@@ -81,5 +93,6 @@ export const CATEGORY_LABELS: Record<string, Record<string, string>> = {
 }
 
 export function getLabel(dimension: string, categoria: string): string {
-  return CATEGORY_LABELS[dimension]?.[categoria] ?? categoria.replace(/_/g, ' ')
+  const label = CATEGORY_LABELS[dimension]?.[categoria] ?? categoria.replace(/_/g, ' ')
+  return label.charAt(0).toUpperCase() + label.slice(1)
 }
