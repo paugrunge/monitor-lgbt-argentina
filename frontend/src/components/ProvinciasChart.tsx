@@ -1,6 +1,7 @@
 import {
   BarChart,
   Bar,
+  Cell,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -17,26 +18,38 @@ type Props = {
 }
 
 export function ProvinciasChart({ data, anio }: Props) {
-  const sorted = [...data]
-    .sort((a, b) => (b.porcentaje ?? 0) - (a.porcentaje ?? 0))
-    .slice(0, 12)
-    .map((d) => ({
-      name: d.categoria,
-      porcentaje: d.porcentaje ?? 0,
-      conteo: d.conteo,
-    }))
+  const EXCLUIR = new Set(['Otras', 'sin_dato'])
+  const provincias = [...data].filter((d) => !EXCLUIR.has(d.categoria))
+  const excluidas = data.filter((d) => EXCLUIR.has(d.categoria))
+
+  const sorted_provincias = provincias.sort((a, b) => (b.porcentaje ?? 0) - (a.porcentaje ?? 0))
+  const top = sorted_provincias.slice(0, 12)
+  const rest = [...sorted_provincias.slice(12), ...excluidas]
+
+  const otrasPct = rest.reduce((sum, d) => sum + (d.porcentaje ?? 0), 0)
+  const otrasConteo = rest.every((d) => d.conteo != null)
+    ? rest.reduce((sum, d) => sum + (d.conteo ?? 0), 0)
+    : null
+
+  const sorted = [
+    ...top.map((d) => ({ name: d.categoria, porcentaje: d.porcentaje ?? 0, conteo: d.conteo })),
+    ...(otrasPct > 0
+      ? [{ name: 'Otras', porcentaje: Math.round(otrasPct * 10) / 10, conteo: otrasConteo }]
+      : []),
+  ]
 
   return (
     <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
       <h2 className="text-white font-semibold mb-1">Distribución geográfica</h2>
       <p className="text-zinc-500 text-sm mb-6">
-        {anio ? `Top provincias — ${anio}` : 'Top provincias — último dato por provincia'}
+        {anio ? `Top 12 provincias — ${anio}` : 'Top 12 provincias — datos agregados'}
       </p>
-      <ResponsiveContainer width="100%" height={320}>
+      <ResponsiveContainer width="100%" height={420}>
         <BarChart
           data={sorted}
           layout="vertical"
-          margin={{ top: 4, right: 48, left: 8, bottom: 4 }}
+          barSize={16}
+          margin={{ top: 4, right: 16, left: -16, bottom: 4 }}
         >
           <CartesianGrid strokeDasharray="3 3" stroke="#3f3f46" horizontal={false} />
           <XAxis
@@ -50,10 +63,11 @@ export function ProvinciasChart({ data, anio }: Props) {
           <YAxis
             type="category"
             dataKey="name"
-            tick={{ fill: '#a1a1aa', fontSize: 12 }}
+            tick={{ fill: '#a1a1aa', fontSize: 11 }}
             axisLine={false}
             tickLine={false}
-            width={150}
+            width={140}
+            interval={0}
           />
           <Tooltip
             {...TOOLTIP_STYLE}
@@ -66,7 +80,14 @@ export function ProvinciasChart({ data, anio }: Props) {
               ]
             }}
           />
-          <Bar dataKey="porcentaje" fill="#6d28d9" radius={[0, 4, 4, 0]} />
+          <Bar dataKey="porcentaje" radius={[0, 4, 4, 0]}>
+            {sorted.map((entry) => (
+              <Cell
+                key={entry.name}
+                fill={entry.name === 'Otras' ? '#52525b' : '#6d28d9'}
+              />
+            ))}
+          </Bar>
         </BarChart>
       </ResponsiveContainer>
     </div>

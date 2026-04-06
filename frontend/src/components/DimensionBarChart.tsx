@@ -72,7 +72,7 @@ export function DimensionBarChart({
             tick={{ fill: '#a1a1aa', fontSize: 12 }}
             axisLine={{ stroke: '#3f3f46' }}
             tickLine={false}
-            domain={[0, 100]}
+            domain={[0, 'auto']}
           />
           <YAxis
             type="category"

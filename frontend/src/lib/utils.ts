@@ -9,12 +9,20 @@ import type { Estadistica } from './supabase'
 export function agregarTodosLosAnios(filas: Estadistica[]): Estadistica[] {
   type Agg = {
     conteoSum: number
-    totalSum: number
     hasConteo: boolean
     lastAnio: number
     lastPorcentaje: number | null
     dimension: string
   }
+
+  // Total global = suma de total_anual por año único (denominador común para todas las categorías)
+  const totalPorAnio = new Map<number, number>()
+  filas.forEach((d) => {
+    if (d.total_anual != null && !totalPorAnio.has(d.anio)) {
+      totalPorAnio.set(d.anio, d.total_anual)
+    }
+  })
+  const grandTotal = [...totalPorAnio.values()].reduce((sum, t) => sum + t, 0)
 
   const map = new Map<string, Agg>()
 
@@ -23,7 +31,6 @@ export function agregarTodosLosAnios(filas: Estadistica[]): Estadistica[] {
     if (!existing) {
       map.set(d.categoria, {
         conteoSum: d.conteo ?? 0,
-        totalSum: d.conteo != null ? (d.total_anual ?? 0) : 0,
         hasConteo: d.conteo != null,
         lastAnio: d.anio,
         lastPorcentaje: d.porcentaje,
@@ -32,7 +39,6 @@ export function agregarTodosLosAnios(filas: Estadistica[]): Estadistica[] {
     } else {
       if (d.conteo != null) {
         existing.conteoSum += d.conteo
-        existing.totalSum += d.total_anual ?? 0
         existing.hasConteo = true
       }
       if (d.anio > existing.lastAnio) {
@@ -42,6 +48,12 @@ export function agregarTodosLosAnios(filas: Estadistica[]): Estadistica[] {
     }
   })
 
+  // Para dimensiones como tipo_muerte donde los % son relativos a un subtotal
+  // (no a total_anual), usar la suma de conteos como denominador en vez de grandTotal.
+  // Esto garantiza que los porcentajes agregados sumen ~100%.
+  const conteoGrandTotal = [...map.values()].reduce((sum, agg) => sum + agg.conteoSum, 0)
+  const denom = conteoGrandTotal > 0 ? conteoGrandTotal : grandTotal
+
   return [...map.entries()].map(([categoria, agg]) => ({
     anio: agg.lastAnio,
     periodo: 'anual',
@@ -49,9 +61,9 @@ export function agregarTodosLosAnios(filas: Estadistica[]): Estadistica[] {
     categoria,
     conteo: agg.hasConteo ? agg.conteoSum : null,
     porcentaje:
-      agg.hasConteo && agg.totalSum > 0
-        ? Math.round((agg.conteoSum / agg.totalSum) * 1000) / 10
+      agg.hasConteo && denom > 0
+        ? Math.round((agg.conteoSum / denom) * 1000) / 10
         : agg.lastPorcentaje,
-    total_anual: agg.hasConteo ? agg.totalSum : null,
+    total_anual: grandTotal > 0 ? grandTotal : null,
   }))
 }

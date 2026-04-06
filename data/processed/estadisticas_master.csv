@@ -27,12 +27,12 @@
 2017,anual,identidad_victima,varón_trans,,3.0,103
 2017,anual,lugar_fisico,comisaria_penal,7.0,7.0,103
 2017,anual,lugar_fisico,descampado,2.0,2.0,103
-2017,anual,lugar_fisico,descampado,2.0,2.0,103
 2017,anual,lugar_fisico,establecimiento_privado,6.0,6.0,103
 2017,anual,lugar_fisico,establecimiento_publico,4.0,4.0,103
+2017,anual,lugar_fisico,otra_vivienda,4.0,4.0,103
 2017,anual,lugar_fisico,parque,2.0,2.0,103
 2017,anual,lugar_fisico,ruta,3.0,3.0,103
-2017,anual,lugar_fisico,sin_dato,3.0,3.0,103
+2017,anual,lugar_fisico,sin_dato,5.0,5.0,103
 2017,anual,lugar_fisico,via_publica,57.0,55.0,103
 2017,anual,lugar_fisico,vivienda_agresor,1.0,1.0,103
 2017,anual,lugar_fisico,vivienda_victima,12.0,11.0,103
@@ -206,7 +206,7 @@
 2020,semestral,identidad_victima,lesbiana,3.0,4.0,69
 2020,semestral,identidad_victima,mujer_trans,54.0,78.0,69
 2020,semestral,identidad_victima,varón_trans,1.0,2.0,69
-2020,semestral,lugar_fisico,comisaria_penal,,2.0,69
+2020,semestral,lugar_fisico,comisaria_penal,,7.0,69
 2020,semestral,lugar_fisico,establecimiento_privado,,11.0,69
 2020,semestral,lugar_fisico,establecimiento_publico,,2.0,69
 2020,semestral,lugar_fisico,rio_zanjon,,2.0,69
@@ -305,7 +305,7 @@
 2021,semestral,rango_etario,60-69,,12.2,53
 2021,semestral,tipo_muerte,asesinato,12.0,34.0,53
 2021,semestral,tipo_muerte,muerte_estructural,19.0,54.0,53
-2021,semestral,tipo_muerte,suicidio,12.0,4.0,53
+2021,semestral,tipo_muerte,suicidio,4.0,12.0,53
 2021,semestral,tipo_violacion,derecho_a_la_vida,35.0,66.0,53
 2021,semestral,tipo_violacion,violencia_fisica,18.0,34.0,53
 2021,semestral,vinculo_agresor,cliente_trabajo_sexual,3.0,10.0,53
@@ -490,7 +490,7 @@
 2024,anual,provincia,San Juan,2.0,1.4,140
 2024,anual,provincia,Santa Fe,4.0,2.9,140
 2024,anual,provincia,Santiago del Estero,3.0,2.1,140
-2024,anual,provincia,Tucuman,2.0,1.4,140
+2024,anual,provincia,Tucumán,2.0,1.4,140
 2024,anual,provincia,sin_dato,1.0,0.8,140
 2024,anual,rango_etario,10-19,,1.7,140
 2024,anual,rango_etario,20-29,,16.95,140
@@ -541,7 +541,6 @@
 2025,anual,provincia,Buenos Aires,60.0,26.91,227
 2025,anual,provincia,CABA,97.0,43.5,227
 2025,anual,provincia,Catamarca,2.0,0.9,227
-2025,anual,provincia,Catamarca,2.0,0.9,227
 2025,anual,provincia,Chaco,3.0,1.35,227
 2025,anual,provincia,Chubut,1.0,0.45,227
 2025,anual,provincia,Corrientes,4.0,1.79,227
@@ -551,7 +550,7 @@
 2025,anual,provincia,Mendoza,2.0,0.9,227
 2025,anual,provincia,Misiones,1.0,0.45,227
 2025,anual,provincia,Neuquén,6.0,2.69,227
-2025,anual,provincia,Rio Negro,2.0,0.9,227
+2025,anual,provincia,Río Negro,2.0,0.9,227
 2025,anual,provincia,Salta,4.0,1.79,227
 2025,anual,provincia,San Juan,2.0,0.9,227
 2025,anual,provincia,San Luis,1.0,0.45,227

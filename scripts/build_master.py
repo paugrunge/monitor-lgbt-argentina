@@ -109,13 +109,14 @@ MASTER_DATA[(2017, 'anual', 103)] = [
     ('lugar_fisico', 'vivienda_victima', 12, 11.0),
     ('lugar_fisico', 'comisaria_penal', 7, 7.0),
     ('lugar_fisico', 'establecimiento_privado', 6, 6.0),
+    ('lugar_fisico', 'sin_dato', 5, 5.0),
     ('lugar_fisico', 'establecimiento_publico', 4, 4.0),
+    ('lugar_fisico', 'otra_vivienda', 4, 4.0),
     ('lugar_fisico', 'ruta', 3, 3.0),
     ('lugar_fisico', 'descampado', 2, 2.0),
     ('lugar_fisico', 'parque', 2, 2.0),
-    ('lugar_fisico', 'descampado', 2, 2.0),
     ('lugar_fisico', 'vivienda_agresor', 1, 1.0),
-    ('lugar_fisico', 'sin_dato', 3, 3.0),
+    
 ]
 
 # ===== 2018 — anual — 147 casos =====
@@ -192,8 +193,8 @@ MASTER_DATA[(2018, 'anual', 147)] = [
     ('lugar_fisico', 'vivienda_victima', None, 15.0),
     ('lugar_fisico', 'establecimiento_privado', None, 22.0),
     ('lugar_fisico', 'ruta', None, 7.0),
-    ('lugar_fisico', 'descampado', None, 3.0),
     ('lugar_fisico', 'establecimiento_publico', None, 4.0),
+    ('lugar_fisico', 'descampado', None, 3.0),
     ('lugar_fisico', 'comisaria_penal', None, 2.0),
     ('lugar_fisico', 'vehiculo', None, 2.0),
     ('lugar_fisico', 'vivienda_compartida', None, 1.0),
@@ -342,7 +343,7 @@ MASTER_DATA[(2020, 'semestral', 69)] = [
     ('lugar_fisico', 'via_publica', None, 49.0),
     ('lugar_fisico', 'vivienda_victima', None, 29.0),
     ('lugar_fisico', 'establecimiento_privado', None, 11.0),
-    ('lugar_fisico', 'comisaria_penal', None, 2.0),
+    ('lugar_fisico', 'comisaria_penal', None, 7.0),
     ('lugar_fisico', 'establecimiento_publico', None, 2.0),
     ('lugar_fisico', 'rio_zanjon', None, 2.0),
 ]
@@ -359,7 +360,7 @@ MASTER_DATA[(2021, 'semestral', 53)] = [
     ('tipo_violacion', 'violencia_fisica', 18, 34.0),
      # tipo_muerte
     ('tipo_muerte', 'asesinato', 12, 34.0),
-    ('tipo_muerte', 'suicidio', 12, 4.0),
+    ('tipo_muerte', 'suicidio', 4, 12.0),
     ('tipo_muerte', 'muerte_estructural', 19, 54.0),
     # autoria
     ('autoria', 'persona_privada', 30, 57.0),
@@ -634,7 +635,7 @@ MASTER_DATA[(2024, 'anual', 140)] = [
     ('provincia', 'Santiago del Estero', 3, 2.1),
     ('provincia', 'Mendoza', 3, 2.1),
     ('provincia', 'Salta', 3, 2.1),
-    ('provincia', 'Tucuman', 2, 1.4),
+    ('provincia', 'Tucumán', 2, 1.4),
     ('provincia', 'San Juan', 2, 1.4),
     ('provincia', 'Córdoba', 2, 1.4),
     ('provincia', 'Chubut', 1, 0.8),
@@ -717,9 +718,8 @@ MASTER_DATA[(2025, 'anual', 227)] = [
     ('provincia', 'Chaco', 3, 1.35),
     ('provincia', 'Catamarca', 2, 0.9),
     ('provincia', 'San Juan', 2, 0.9),
-    ('provincia', 'Catamarca', 2, 0.9),
     ('provincia', 'Mendoza', 2, 0.9),
-    ('provincia', 'Rio Negro', 2, 0.9),
+    ('provincia', 'Río Negro', 2, 0.9),
     ('provincia', 'Misiones', 1, 0.45),
     ('provincia', 'San Luis', 1, 0.45),
     ('provincia', 'La Pampa', 1, 0.45),

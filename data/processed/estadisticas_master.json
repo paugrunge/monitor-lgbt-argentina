@@ -255,15 +255,6 @@
     "anio":2017,
     "periodo":"anual",
     "dimension":"lugar_fisico",
-    "categoria":"descampado",
-    "conteo":2.0,
-    "porcentaje":2.0,
-    "total_anual":103
-  },
-  {
-    "anio":2017,
-    "periodo":"anual",
-    "dimension":"lugar_fisico",
     "categoria":"establecimiento_privado",
     "conteo":6.0,
     "porcentaje":6.0,
@@ -274,6 +265,15 @@
     "periodo":"anual",
     "dimension":"lugar_fisico",
     "categoria":"establecimiento_publico",
+    "conteo":4.0,
+    "porcentaje":4.0,
+    "total_anual":103
+  },
+  {
+    "anio":2017,
+    "periodo":"anual",
+    "dimension":"lugar_fisico",
+    "categoria":"otra_vivienda",
     "conteo":4.0,
     "porcentaje":4.0,
     "total_anual":103
@@ -301,8 +301,8 @@
     "periodo":"anual",
     "dimension":"lugar_fisico",
     "categoria":"sin_dato",
-    "conteo":3.0,
-    "porcentaje":3.0,
+    "conteo":5.0,
+    "porcentaje":5.0,
     "total_anual":103
   },
   {
@@ -1868,7 +1868,7 @@
     "dimension":"lugar_fisico",
     "categoria":"comisaria_penal",
     "conteo":null,
-    "porcentaje":2.0,
+    "porcentaje":7.0,
     "total_anual":69
   },
   {
@@ -2758,8 +2758,8 @@
     "periodo":"semestral",
     "dimension":"tipo_muerte",
     "categoria":"suicidio",
-    "conteo":12.0,
-    "porcentaje":4.0,
+    "conteo":4.0,
+    "porcentaje":12.0,
     "total_anual":53
   },
   {
@@ -4422,7 +4422,7 @@
     "anio":2024,
     "periodo":"anual",
     "dimension":"provincia",
-    "categoria":"Tucuman",
+    "categoria":"Tucumán",
     "conteo":2.0,
     "porcentaje":1.4,
     "total_anual":140
@@ -4881,15 +4881,6 @@
     "anio":2025,
     "periodo":"anual",
     "dimension":"provincia",
-    "categoria":"Catamarca",
-    "conteo":2.0,
-    "porcentaje":0.9,
-    "total_anual":227
-  },
-  {
-    "anio":2025,
-    "periodo":"anual",
-    "dimension":"provincia",
     "categoria":"Chaco",
     "conteo":3.0,
     "porcentaje":1.35,
@@ -4971,7 +4962,7 @@
     "anio":2025,
     "periodo":"anual",
     "dimension":"provincia",
-    "categoria":"Rio Negro",
+    "categoria":"Río Negro",
     "conteo":2.0,
     "porcentaje":0.9,
     "total_anual":227
