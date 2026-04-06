@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useMemo, useState, useEffect } from 'react'
 import { useData } from '../context/EstadisticasContext'
 import { PageShell } from '../components/PageShell'
 import { ArgentinaMap } from '../components/ArgentinaMap'
@@ -6,6 +6,8 @@ import { ProvinciasChart } from '../components/ProvinciasChart'
 import { ProvinciaHeatmap } from '../components/ProvinciaHeatmap'
 import { agregarTodosLosAnios } from '../lib/utils'
 import { TOOLTIP_STYLE } from '../lib/chartStyles'
+import { supabase } from '../lib/supabase'
+import type { ProvinciaConPoblacion } from '../lib/poblacion'
 import {
   LineChart,
   Line,
@@ -36,6 +38,8 @@ const COLORS = [
 export function GeografiaPage() {
   const { data, loading } = useData()
   const [anio, setAnio] = useState<number | null>(null)
+  const [modo, setModo] = useState<'porcentaje' | 'percapita'>('porcentaje')
+  const [poblaciones, setPoblaciones] = useState<ProvinciaConPoblacion[]>([])
 
   const años = useMemo(() => [...new Set(data.map((d) => d.anio))].sort(), [data])
 
@@ -59,6 +63,13 @@ export function GeografiaPage() {
     })
   }, [data, años])
 
+  useEffect(() => {
+    supabase
+      .from('provincias')
+      .select('nombre, poblacion_2010, poblacion_2022')
+      .then(({ data: provData }) => { if (provData) setPoblaciones(provData) })
+  }, [])
+
   if (loading) return <div className="flex items-center justify-center min-h-[60vh] text-zinc-500 text-sm">Cargando datos...</div>
 
   return (
@@ -69,9 +80,59 @@ export function GeografiaPage() {
       anio={anio}
       onAnioChange={setAnio}
     >
+      {/* Toggle modo de visualización */}
+      <div className="flex items-center gap-3">
+        <span className="text-zinc-500 text-sm">Visualizar:</span>
+        <div className="flex rounded-lg border border-zinc-700 overflow-hidden text-xs">
+          <button
+            onClick={() => setModo('porcentaje')}
+            className={
+              modo === 'porcentaje'
+                ? 'bg-violet-700 text-white px-3 py-1.5'
+                : 'text-zinc-400 px-3 py-1.5 hover:text-zinc-200 transition-colors'
+            }
+          >
+            % casos
+          </button>
+          <button
+            onClick={() => setModo('percapita')}
+            className={
+              modo === 'percapita'
+                ? 'bg-violet-700 text-white px-3 py-1.5'
+                : 'text-zinc-400 px-3 py-1.5 hover:text-zinc-200 transition-colors'
+            }
+          >
+            por 100k hab.
+          </button>
+        </div>
+      </div>
+
+      {modo === 'percapita' && (
+        <div className="bg-violet-500/5 border border-violet-500/20 rounded-xl px-5 py-4 text-sm text-zinc-400 leading-relaxed">
+          <span className="text-violet-400 font-medium">¿Qué significa esta tasa? </span>
+          Indica cuántos crímenes de odio ocurrieron por cada 100.000 personas que viven en esa
+          provincia. Sirve para comparar provincias de forma justa: una provincia grande como Buenos
+          Aires tiene más casos en total, pero eso no significa que el problema sea más grave allí
+          que en una provincia más pequeña. Esta tasa pone a todas en igualdad de condiciones.
+        </div>
+      )}
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <ArgentinaMap data={data} anio={anio} />
-        <ProvinciasChart data={provinciasFiltradas} anio={anio} />
+        <ArgentinaMap
+          data={data}
+          anio={anio}
+          modo={modo}
+          poblaciones={poblaciones}
+          años={años}
+        />
+        <ProvinciasChart
+          data={provinciasFiltradas}
+          dataRaw={data}
+          anio={anio}
+          modo={modo}
+          poblaciones={poblaciones}
+          años={años}
+        />
       </div>
       <ProvinciaHeatmap data={data} años={años} />
 

@@ -62,15 +62,19 @@ CREATE INDEX IF NOT EXISTS idx_est_dim_cat ON estadisticas(dimension, categoria)
 -- Tabla auxiliar de provincias (para joins geográficos futuros con PostGIS)
 -- ---------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS provincias (
-    id         SERIAL PRIMARY KEY,
-    nombre     VARCHAR(100) NOT NULL UNIQUE,
-    codigo_iso CHAR(2),          -- ISO 3166-2:AR (ej: 'BA', 'C', 'X')
-    region     VARCHAR(50),
+    id              SERIAL PRIMARY KEY,
+    nombre          VARCHAR(100) NOT NULL UNIQUE,
+    codigo_iso      CHAR(2),          -- ISO 3166-2:AR (ej: 'BA', 'C', 'X')
+    region          VARCHAR(50),
+    poblacion_2010  INTEGER,          -- Censo Nacional INDEC 2010
+    poblacion_2022  INTEGER,          -- Censo Nacional INDEC 2022
     -- geometry GEOMETRY(MULTIPOLYGON, 4326)  -- descomentar al agregar PostGIS
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    created_at      TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
 COMMENT ON TABLE provincias IS 'Dimensión geográfica. Agrega PostGIS geometry para mapas.';
+COMMENT ON COLUMN provincias.poblacion_2010 IS 'Población según Censo Nacional INDEC 2010.';
+COMMENT ON COLUMN provincias.poblacion_2022 IS 'Población según Censo Nacional INDEC 2022.';
 
 -- Poblar provincias
 INSERT INTO provincias (nombre, codigo_iso, region) VALUES

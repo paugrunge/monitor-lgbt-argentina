@@ -79,6 +79,35 @@ export function AcercaDePage() {
         </p>
       </Section>
 
+      <Section title="Análisis geográfico: tasa por 100.000 habitantes">
+        <p>
+          La página de distribución geográfica ofrece dos formas de ver los datos provinciales.
+          La vista por <strong className="text-zinc-300">porcentaje de casos</strong> muestra qué
+          proporción del total nacional ocurrió en cada provincia. La vista por{' '}
+          <strong className="text-zinc-300">casos por 100.000 habitantes</strong> ajusta esa cifra
+          según la población de cada provincia, permitiendo comparaciones más justas.
+        </p>
+        <p>
+          Por ejemplo: si Buenos Aires registra 60 casos y CABA registra 97 en el mismo año, en
+          términos absolutos Buenos Aires parece tener menos. Pero Buenos Aires tiene 17 millones de
+          habitantes y CABA 3 millones. Ajustando por población, CABA tiene una tasa muy superior,
+          lo que indica una mayor concentración del fenómeno relativa a su tamaño.
+        </p>
+        <p>
+          Para calcular la población de cada año (2016–2022) se utiliza interpolación lineal entre
+          los censos INDEC 2010 y 2022. Para los años 2023–2025 se extrapola la misma tendencia.
+          La tasa para "todos los años" es el promedio de las tasas anuales de los años con datos
+          de conteo exacto disponibles.
+        </p>
+        <p>
+          Los datos de población provienen del{' '}
+          <Link href="https://www.indec.gob.ar">
+            Instituto Nacional de Estadística y Censos (INDEC)
+          </Link>
+          , Censo Nacional de Población, Hogares y Viviendas 2010 y 2022.
+        </p>
+      </Section>
+
       <Section title="Limitaciones">
         <p>
           Los datos reflejan únicamente los casos documentados por organizaciones de la sociedad

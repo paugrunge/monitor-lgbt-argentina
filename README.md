@@ -2,7 +2,7 @@
 
 Plataforma web de visualización de datos sobre crímenes de odio y discriminación hacia la comunidad LGBT+ en Argentina (2016–2025).
 
-Los datos provienen exclusivamente de los informes anuales del **Observatorio Nacional de Crímenes de Odio LGBT+**, una iniciativa de la [FALGBT](https://falgbt.org/crimenes-de-odio/) (Federación Argentina LGBT) en conjunto con la Defensoría del Pueblo de la CABA y la Defensoría del Pueblo de la Nación.
+Los datos sobre crímenes de odio provienen exclusivamente de los informes anuales del **Observatorio Nacional de Crímenes de Odio LGBT+**, una iniciativa de la [FALGBT](https://falgbt.org/crimenes-de-odio/) (Federación Argentina LGBT) en conjunto con la Defensoría del Pueblo de la CABA y la Defensoría del Pueblo de la Nación.
 
 ---
 
@@ -62,6 +62,7 @@ monitor-lgbt-argentina/
 - **Sin backend custom**: el frontend consume la API REST de Supabase directamente con `@supabase/supabase-js`. No hay servidor intermediario.
 - **Fetch único**: los datos se cargan una sola vez al montar la app y se comparten entre todas las páginas vía React Context.
 - **Agregación cross-año**: cuando no hay año seleccionado, los gráficos muestran la suma real de todos los períodos (`conteo_total / total_anual_acumulado × 100`), no el último año disponible.
+- **Tasa por 100.000 habitantes**: la página de geografía permite ver los datos ajustados por población provincial, usando interpolación lineal entre los censos INDEC 2010 y 2022. Para "todos los años" se muestra el promedio de tasas anuales (solo años con datos de conteo exacto).
 - **Datos maestros manuales**: el pipeline automático tiene ~60% de cobertura (los PDFs no tienen tablas, todo son datos en prosa). El dataset definitivo se construye en `build_master.py` con correcciones manuales verificadas leyendo cada informe.
 
 ---
@@ -148,4 +149,5 @@ Al contribuir, por favor tené en cuenta que los datos tratan violencia real hac
 
 ---
 
-*Datos: [Observatorio Nacional de Crímenes de Odio LGBT+](https://falgbt.org/crimenes-de-odio/) — FALGBT, Defensoría del Pueblo CABA, Defensoría del Pueblo de la Nación.*
+*Datos de crímenes de odio: [Observatorio Nacional de Crímenes de Odio LGBT+](https://falgbt.org/crimenes-de-odio/) — FALGBT, Defensoría del Pueblo CABA, Defensoría del Pueblo de la Nación.*
+*Datos de población: [INDEC](https://www.indec.gob.ar) — Censo Nacional de Población, Hogares y Viviendas 2010 y 2022.*
