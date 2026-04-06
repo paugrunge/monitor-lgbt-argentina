@@ -38,10 +38,10 @@ export function DonutChart({ data, title, insight }: Props) {
           <Tooltip
             {...TOOLTIP_STYLE}
             formatter={(value, name, props) => {
-              const v = Number(value)
+              const v = Number(value).toFixed(1)
               const conteo = props.payload.conteo
               return [
-                conteo != null ? `${v}% (${conteo} casos)` : `${v}%`,
+                conteo != null ? `${v}% (${conteo} ${conteo === 1 ? 'caso' : 'casos'})` : `${v}%`,
                 String(name),
               ]
             }}

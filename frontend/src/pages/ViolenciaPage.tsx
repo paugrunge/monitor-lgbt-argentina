@@ -62,10 +62,10 @@ export function ViolenciaPage() {
   const modalidadData = useMemo(() => filtrar('modalidad'), [data, anio])
 
   const insightViolacion = useMemo(() => {
-    const vida = filtrar('tipo_violacion').find((d) => d.categoria === 'derecho_a_la_vida')
-    if (!vida?.porcentaje) return undefined
-    return `${vida.porcentaje.toFixed(1)}% de los crímenes lesionan el derecho a la vida${anio ? ` en ${anio}` : ''}.`
-  }, [data, anio])
+    const vida = violacionData.find((d) => d.name === 'Derecho a la vida')
+    if (!vida?.value) return undefined
+    return `${vida.value.toFixed(1)}% de los crímenes lesionan el derecho a la vida${anio ? ` en ${anio}` : ''}.`
+  }, [violacionData, anio])
 
   if (loading) return <div className="flex items-center justify-center min-h-[60vh] text-zinc-500 text-sm">Cargando datos...</div>
 
