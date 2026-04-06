@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react'
-import { ComposableMap, Geographies, Geography } from 'react-simple-maps'
+import { ComposableMap, Geographies, Geography, Marker } from 'react-simple-maps'
 import type { Estadistica } from '../lib/supabase'
 import { agregarTodosLosAnios } from '../lib/utils'
 
@@ -12,6 +12,9 @@ type Props = {
 const GEOJSON_TO_DATA: Record<string, string> = {
   'Ciudad de Buenos Aires': 'CABA',
 }
+
+// CABA es microscópica a escala país — se muestra como marcador separado
+const CABA_COORDS: [number, number] = [-58.45, -34.61]
 
 // Escala de calor: misma que ProvinciaHeatmap
 function intensidadColor(pct: number, max: number): string {
@@ -48,15 +51,20 @@ export function ArgentinaMap({ data, anio }: Props) {
     [provinciaData],
   )
 
-  function getDataKey(geoName: string): string {
-    return GEOJSON_TO_DATA[geoName] ?? geoName
-  }
+  const cabaData = provinciaData.get('CABA')
+  const cabaPct = cabaData?.porcentaje ?? 0
+  const cabaFill = intensidadColor(cabaPct, maxPct)
+  const cabaTooltip = cabaPct > 0
+    ? `CABA: ${cabaPct.toFixed(1)}%${cabaData?.conteo != null ? ` · ${cabaData.conteo} casos` : ''}`
+    : 'CABA: Sin datos'
 
   return (
     <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
       <h2 className="text-white font-semibold mb-1">Mapa de Argentina</h2>
       <p className="text-zinc-500 text-sm mb-4">
-        {anio ? `Distribución de casos por provincia — ${anio}` : 'Distribución acumulada de casos por provincia (todos los años)'}
+        {anio
+          ? `Distribución de casos por provincia — ${anio}`
+          : 'Distribución acumulada de casos por provincia (todos los años)'}
       </p>
 
       <div className="relative">
@@ -71,10 +79,13 @@ export function ArgentinaMap({ data, anio }: Props) {
             {({ geographies }) =>
               geographies.map((geo) => {
                 const geoName: string = geo.properties.NAME_1 ?? ''
-                const dataKey = getDataKey(geoName)
+                const dataKey = GEOJSON_TO_DATA[geoName] ?? geoName
                 const prov = provinciaData.get(dataKey)
                 const pct = prov?.porcentaje ?? 0
                 const fill = intensidadColor(pct, maxPct)
+                const tooltipContent = pct > 0
+                  ? `${dataKey}: ${pct.toFixed(1)}%${prov?.conteo != null ? ` · ${prov.conteo} casos` : ''}`
+                  : `${dataKey}: Sin datos`
 
                 return (
                   <Geography
@@ -88,27 +99,34 @@ export function ArgentinaMap({ data, anio }: Props) {
                       hover: { outline: 'none', opacity: 0.85 },
                       pressed: { outline: 'none' },
                     }}
-                    onMouseEnter={(e) => {
-                      const label = dataKey
-                      const pctStr = pct > 0 ? `${pct.toFixed(1)}%` : 'Sin datos'
-                      const conteoStr = prov?.conteo != null ? ` · ${prov.conteo} casos` : ''
-                      setTooltip({
-                        content: `${label}: ${pctStr}${conteoStr}`,
-                        x: e.clientX,
-                        y: e.clientY,
-                      })
-                    }}
-                    onMouseMove={(e) => {
-                      setTooltip((prev) =>
-                        prev ? { ...prev, x: e.clientX, y: e.clientY } : prev,
-                      )
-                    }}
+                    onMouseEnter={(e) => setTooltip({ content: tooltipContent, x: e.clientX, y: e.clientY })}
+                    onMouseMove={(e) => setTooltip((prev) => prev ? { ...prev, x: e.clientX, y: e.clientY } : prev)}
                     onMouseLeave={() => setTooltip(null)}
                   />
                 )
               })
             }
           </Geographies>
+
+          {/* CABA: marcador visible porque su polígono es microscópico a escala país */}
+          <Marker coordinates={CABA_COORDS}>
+            <circle
+              r={8}
+              fill={cabaFill}
+              stroke="#3f3f46"
+              strokeWidth={1}
+              onMouseEnter={(e) => setTooltip({ content: cabaTooltip, x: e.clientX, y: e.clientY })}
+              onMouseMove={(e) => setTooltip((prev) => prev ? { ...prev, x: e.clientX, y: e.clientY } : prev)}
+              onMouseLeave={() => setTooltip(null)}
+            />
+            <text
+              textAnchor="middle"
+              y={-12}
+              style={{ fontSize: 9, fill: '#a1a1aa', pointerEvents: 'none' }}
+            >
+              CABA
+            </text>
+          </Marker>
         </ComposableMap>
 
         {tooltip && (
