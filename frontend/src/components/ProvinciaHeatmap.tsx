@@ -63,7 +63,7 @@ export function ProvinciaHeatmap({ data, años }: Props) {
                   return (
                     <td key={anio} className="p-0.5">
                       <div
-                        title={pct > 0 ? `${pct}%${celda?.conteo != null ? ` (${celda.conteo} casos)` : ''}` : 'Sin datos'}
+                        title={pct > 0 ? `${pct}%${celda?.conteo != null ? ` (${celda.conteo} ${celda.conteo === 1 ? 'caso' : 'casos'})` : ''}` : 'Sin datos'}
                         className="h-7 rounded cursor-default"
                         style={intensidadStyle(pct, maxPct)}
                       />

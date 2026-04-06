@@ -55,7 +55,7 @@ export function ArgentinaMap({ data, anio }: Props) {
   const cabaPct = cabaData?.porcentaje ?? 0
   const cabaFill = intensidadColor(cabaPct, maxPct)
   const cabaTooltip = cabaPct > 0
-    ? `CABA: ${cabaPct.toFixed(1)}%${cabaData?.conteo != null ? ` · ${cabaData.conteo} casos` : ''}`
+    ? `CABA: ${cabaPct.toFixed(1)}%${cabaData?.conteo != null ? ` · ${cabaData.conteo} ${cabaData.conteo === 1 ? 'caso' : 'casos'}` : ''}`
     : 'CABA: Sin datos'
 
   return (
@@ -84,7 +84,7 @@ export function ArgentinaMap({ data, anio }: Props) {
                 const pct = prov?.porcentaje ?? 0
                 const fill = intensidadColor(pct, maxPct)
                 const tooltipContent = pct > 0
-                  ? `${dataKey}: ${pct.toFixed(1)}%${prov?.conteo != null ? ` · ${prov.conteo} casos` : ''}`
+                  ? `${dataKey}: ${pct.toFixed(1)}%${prov?.conteo != null ? ` · ${prov.conteo} ${prov.conteo === 1 ? 'caso' : 'casos'}` : ''}`
                   : `${dataKey}: Sin datos`
 
                 return (

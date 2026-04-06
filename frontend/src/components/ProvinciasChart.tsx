@@ -75,7 +75,7 @@ export function ProvinciasChart({ data, anio }: Props) {
               const v = Number(value)
               const conteo = props.payload.conteo
               return [
-                conteo != null ? `${v}% (${conteo} casos)` : `${v}%`,
+                conteo != null ? `${v}% (${conteo} ${conteo === 1 ? 'caso' : 'casos'})` : `${v}%`,
                 'Casos',
               ]
             }}
