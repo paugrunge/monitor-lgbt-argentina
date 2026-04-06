@@ -12,6 +12,8 @@ export function agregarTodosLosAnios(filas: Estadistica[]): Estadistica[] {
     rowsWithConteo: number
     totalRows: number
     hasConteo: boolean
+    pctWeightedSum: number   // suma de pct * total_anual (para promedio ponderado)
+    pctTotalWeight: number   // suma de total_anual de años con pct disponible
     lastAnio: number
     lastPorcentaje: number | null
     dimension: string
@@ -36,6 +38,8 @@ export function agregarTodosLosAnios(filas: Estadistica[]): Estadistica[] {
         rowsWithConteo: d.conteo != null ? 1 : 0,
         totalRows: 1,
         hasConteo: d.conteo != null,
+        pctWeightedSum: d.porcentaje != null ? d.porcentaje * (d.total_anual ?? 1) : 0,
+        pctTotalWeight: d.porcentaje != null ? (d.total_anual ?? 1) : 0,
         lastAnio: d.anio,
         lastPorcentaje: d.porcentaje,
         dimension: d.dimension,
@@ -46,6 +50,10 @@ export function agregarTodosLosAnios(filas: Estadistica[]): Estadistica[] {
         existing.conteoSum += d.conteo
         existing.rowsWithConteo += 1
         existing.hasConteo = true
+      }
+      if (d.porcentaje != null) {
+        existing.pctWeightedSum += d.porcentaje * (d.total_anual ?? 1)
+        existing.pctTotalWeight += d.total_anual ?? 1
       }
       if (d.anio > existing.lastAnio) {
         existing.lastAnio = d.anio
@@ -69,10 +77,14 @@ export function agregarTodosLosAnios(filas: Estadistica[]): Estadistica[] {
     // Si la cobertura es parcial (ej: lugar_fisico solo tiene conteos en 2017),
     // el número sería engañoso → se omite.
     conteo: agg.hasConteo && agg.rowsWithConteo / agg.totalRows >= 0.5 ? agg.conteoSum : null,
-    porcentaje:
-      agg.hasConteo && denom > 0
-        ? Math.round((agg.conteoSum / denom) * 1000) / 10
-        : agg.lastPorcentaje,
+    porcentaje: (() => {
+      const buenaCoberturaConteo = agg.hasConteo && agg.rowsWithConteo / agg.totalRows >= 0.5
+      if (buenaCoberturaConteo && denom > 0)
+        return Math.round((agg.conteoSum / denom) * 1000) / 10
+      if (agg.pctTotalWeight > 0)
+        return Math.round((agg.pctWeightedSum / agg.pctTotalWeight) * 10) / 10
+      return agg.lastPorcentaje
+    })(),
     total_anual: grandTotal > 0 ? grandTotal : null,
   }))
 }
