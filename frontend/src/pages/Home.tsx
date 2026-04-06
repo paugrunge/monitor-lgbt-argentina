@@ -14,15 +14,15 @@ export function Home() {
   const años = useMemo(() => [...new Set(data.map((d) => d.anio))].sort(), [data])
 
   const totalesPorAnio = useMemo(() => {
-    const map = new Map<number, number>()
+    const map = new Map<number, { total: number; semestral: boolean }>()
     data.forEach((d) => {
-      if (d.total_anual && (!map.has(d.anio) || map.get(d.anio)! < d.total_anual)) {
-        map.set(d.anio, d.total_anual)
+      if (d.total_anual && (!map.has(d.anio) || map.get(d.anio)!.total < d.total_anual)) {
+        map.set(d.anio, { total: d.total_anual, semestral: d.periodo === 'semestral' })
       }
     })
     return [...map.entries()]
       .sort(([a], [b]) => a - b)
-      .map(([anio, total]) => ({ anio, total }))
+      .map(([anio, { total, semestral }]) => ({ anio, total, semestral }))
   }, [data])
 
   const identidades = useMemo(() => {

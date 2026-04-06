@@ -19,7 +19,7 @@ export function DonutChart({ data, title, insight }: Props) {
   return (
     <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
       <h2 className="text-white font-semibold mb-1">{title}</h2>
-      {insight && <p className="text-zinc-500 text-sm mb-6">{insight}</p>}
+      <p className="text-zinc-500 text-sm mb-6">{insight || '\u00A0'}</p>
       <ResponsiveContainer width="100%" height={300}>
         <PieChart margin={{ top: 8, right: 8, bottom: 8, left: 8 }}>
           <Pie

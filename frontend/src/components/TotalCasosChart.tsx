@@ -10,12 +10,13 @@ import {
 import { TOOLTIP_STYLE } from '../lib/chartStyles'
 
 type Props = {
-  data: { anio: number; total: number }[]
+  data: { anio: number; total: number; semestral?: boolean }[]
 }
 
 export function TotalCasosChart({ data }: Props) {
   const primerAnio = data[0]?.anio
   const ultimoAnio = data[data.length - 1]?.anio
+  const añosSemestrales = data.filter((d) => d.semestral).map((d) => d.anio)
 
   return (
     <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
@@ -23,7 +24,7 @@ export function TotalCasosChart({ data }: Props) {
       <p className="text-zinc-500 text-sm mb-6">
         Total de crímenes de odio registrados ({primerAnio}–{ultimoAnio})
       </p>
-      <ResponsiveContainer width="100%" height={280}>
+      <ResponsiveContainer width="100%" height={260}>
         <AreaChart data={data} margin={{ top: 4, right: 16, left: 0, bottom: 4 }}>
           <defs>
             <linearGradient id="gradientViolet" x1="0" y1="0" x2="0" y2="1">
@@ -59,6 +60,11 @@ export function TotalCasosChart({ data }: Props) {
           />
         </AreaChart>
       </ResponsiveContainer>
+      {añosSemestrales.length > 0 && (
+        <p className="text-zinc-600 text-xs mt-3">
+          * Los informes de {añosSemestrales.join(' y ')} son semestrales (enero–junio), por lo que sus cifras no son comparables directamente con los años con informes anuales.
+        </p>
+      )}
     </div>
   )
 }

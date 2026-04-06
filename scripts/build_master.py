@@ -377,7 +377,7 @@ MASTER_DATA[(2021, 'semestral', 53)] = [
     ('modalidad', 'privacion_libertad', 2, 3.0),
     ('modalidad', 'fuego_calcinamiento', 1, 2.0),
     ('modalidad', 'ahogo', 1, 2.0),
-    ('modalidad', 'deguello', 1, 2.0),
+    ('modalidad', 'degüello', 1, 2.0),
     ('modalidad', 'sin_dato', 2, 3.0),
     ('modalidad', 'otra', 1, 2.0),
     # vinculo_agresor
