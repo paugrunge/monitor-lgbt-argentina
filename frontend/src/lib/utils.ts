@@ -9,6 +9,8 @@ import type { Estadistica } from './supabase'
 export function agregarTodosLosAnios(filas: Estadistica[]): Estadistica[] {
   type Agg = {
     conteoSum: number
+    rowsWithConteo: number
+    totalRows: number
     hasConteo: boolean
     lastAnio: number
     lastPorcentaje: number | null
@@ -31,14 +33,18 @@ export function agregarTodosLosAnios(filas: Estadistica[]): Estadistica[] {
     if (!existing) {
       map.set(d.categoria, {
         conteoSum: d.conteo ?? 0,
+        rowsWithConteo: d.conteo != null ? 1 : 0,
+        totalRows: 1,
         hasConteo: d.conteo != null,
         lastAnio: d.anio,
         lastPorcentaje: d.porcentaje,
         dimension: d.dimension,
       })
     } else {
+      existing.totalRows += 1
       if (d.conteo != null) {
         existing.conteoSum += d.conteo
+        existing.rowsWithConteo += 1
         existing.hasConteo = true
       }
       if (d.anio > existing.lastAnio) {
@@ -59,7 +65,10 @@ export function agregarTodosLosAnios(filas: Estadistica[]): Estadistica[] {
     periodo: 'anual',
     dimension: agg.dimension,
     categoria,
-    conteo: agg.hasConteo ? agg.conteoSum : null,
+    // Solo mostrar conteo agregado si la mayoría de años tiene datos de conteo.
+    // Si la cobertura es parcial (ej: lugar_fisico solo tiene conteos en 2017),
+    // el número sería engañoso → se omite.
+    conteo: agg.hasConteo && agg.rowsWithConteo / agg.totalRows >= 0.5 ? agg.conteoSum : null,
     porcentaje:
       agg.hasConteo && denom > 0
         ? Math.round((agg.conteoSum / denom) * 1000) / 10
